@@ -1,3 +1,3 @@
 h1. This is the Brian Dear Twitter experimentation.. Nothing groundbreaking.
 
-h2. If you're bored, check out my "blog":http://atomicsupersky.com it has nothing to do with this, but it might be fun to read.
+h3. If you're bored, check out my "blog":http://atomicsupersky.com -- it has nothing to do with this, but it might be fun to read.
