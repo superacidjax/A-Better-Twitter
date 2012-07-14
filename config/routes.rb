@@ -1,4 +1,8 @@
 BetterTwitter::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/help"
+
   match '/ui(/:action)', controller: 'ui'
 
   # The priority is based upon order of creation:
