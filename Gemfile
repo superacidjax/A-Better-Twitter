@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'clear_eyes'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
 gem 'pg'
@@ -14,11 +15,14 @@ end
 
 group :development, :test do
 	gem 'capybara'
-	gem 'cucumber-rails'
-	gem 'dirty'
+	gem 'cucumber-rails', :require => false
+	gem 'growl'
+	gem 'guard-rspec'
+	gem 'guard-spork'
 	gem 'heroku'
 	gem 'pry-nav'
 	gem 'pry-rails'
+	gem 'rb-fsevent', :require => false
 	gem 'rspec-rails'
 	gem 'spork'
 end
