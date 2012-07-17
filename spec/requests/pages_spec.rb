@@ -10,9 +10,14 @@ describe "Pages" do
       page.should have_selector('h1', :text => 'A Better Twitter')
   	end
 
-    it "should have the right title" do
+    it "should have the base title" do
       visit '/pages/home'
-      page.should have_selector('title', :text => "A Better Twitter | Home")
+      page.should have_selector('title', :text => "A Better Twitter")
+    end
+
+    it "should not have a custom page title" do
+      visit '/pages/home'
+      page.should_not have_selector('title', :text => "A Better Twitter | Home")
     end
   end
 
