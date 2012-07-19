@@ -10,5 +10,8 @@
     /[if IE]
       = javascript_include_tag 'html5'
   %body
-    = render 'flashes'
-    = yield
+    .container
+      = render 'layouts/header'
+      = render 'flashes'
+      = yield
+      = render 'layouts/footer'

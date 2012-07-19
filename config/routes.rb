@@ -1,10 +1,17 @@
 BetterTwitter::Application.routes.draw do
+
+  get "users/new"
+
+  root :to => 'pages#home'
+
+  match '/help', to: 'pages#help'
+  match '/contact', to: 'pages#contact'
+  match '/about', to: 'pages#about'
+  match '/signup', to: 'users#new'
+
   get "pages/home"
-
   get "pages/help"
-
   get "pages/about"
-
   get "pages/contact"
 
   match '/ui(/:action)', controller: 'ui'
