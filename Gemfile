@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'clear_eyes'
+gem 'bootstrap-sass'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
 gem 'pg'
