@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
