@@ -15,19 +15,24 @@ group :assets do
 end
 
 group :development, :test do
-	gem 'capybara'
-	gem 'cucumber-rails', :require => false
-	gem 'growl'
-	gem 'guard-rspec'
-	gem 'guard-spork'
 	gem 'heroku'
 	gem 'pry-nav'
 	gem 'pry-rails'
-	gem 'rb-fsevent', :require => false
-	gem 'rspec-rails'
-	gem 'spork'
 end
 
 group :development do
 	gem 'rails-erd'
+end
+
+group :test do
+	gem 'fabrication'
+	gem 'capybara'
+	gem 'cucumber-rails', :require => false
+	gem 'database_cleaner'
+	gem 'growl'
+	gem 'guard-rspec'
+	gem 'guard-spork'
+	gem 'rb-fsevent', :require => false
+	gem 'rspec-rails'
+	gem 'spork'
 end
