@@ -2,6 +2,11 @@
 
 $textBlack: #3f3d32
 
+@mixin box_sizing
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
 body
   padding-top: 60px
   font: normal 62.5% "myriad-pro", sans-serif
@@ -61,8 +66,8 @@ body
     color: $textBlack
     a
       color: #555
-    a:hover
-      color: #222
+      &:hover
+        color: #222
     small
       float: left
     ul
@@ -71,3 +76,33 @@ body
       li
         float: left
         margin-left: 10px
+
+  .debug_dump
+    clear: both
+    float: left
+    width: 100%
+    margin-top: 45px
+    @include box_sizing
+
+/* sidebar */
+
+aside
+  section
+    padding: 10px 0
+    border-top: 8px solid #fff
+    &:first-child
+      border: 0
+      padding-top: 0
+    span
+      display: block
+      margin-bottom: 3px
+      line-height: 1
+    h1
+      font-size: 1.6em
+      text-align: left
+      letter-spacing: -1px
+      margin-bottom: 3px
+
+  .gravatar
+    float: left
+    margin-right: 10px
