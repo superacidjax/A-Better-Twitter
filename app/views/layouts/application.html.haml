@@ -12,7 +12,9 @@
   %body
     .container
       = render 'layouts/header'
-      = render 'flashes'
+      - flash.each do | key, value|
+        = content_tag(:div, value, class: "alert alert-#{key}")
+        = render 'flashes'
       = yield
       = render 'layouts/footer'
       = debug(params) if Rails.env.development?
