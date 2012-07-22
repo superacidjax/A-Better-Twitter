@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+
+  expose(:user)
+
 end
