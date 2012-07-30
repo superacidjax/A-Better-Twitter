@@ -18,6 +18,7 @@ group :development, :test do
 	gem 'heroku'
 	gem 'pry-nav'
 	gem 'pry-rails'
+	gem 'rspec-rails'
 end
 
 group :development do
@@ -32,7 +33,7 @@ group :test do
 	gem 'growl'
 	gem 'guard-rspec'
 	gem 'guard-spork'
+	gem 'launchy'
 	gem 'rb-fsevent', :require => false
-	gem 'rspec-rails'
 	gem 'spork'
 end
