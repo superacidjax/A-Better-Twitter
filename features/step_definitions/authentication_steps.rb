@@ -28,3 +28,7 @@ end
 Then /^he should see a signout link$/ do
   page.should have_link('Sign out', href: signout_path)
 end
+
+Given /^the user should see a twitter login button$/ do
+  page.should have_link('Sign in with Twitter')
+end

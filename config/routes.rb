@@ -15,5 +15,6 @@ BetterTwitter::Application.routes.draw do
 
 
   match '/ui(/:action)', controller: 'ui'
+  match 'auth/:provider/callback', to: 'sessions#create'
 
 end
