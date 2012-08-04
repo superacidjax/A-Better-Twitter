@@ -30,7 +30,7 @@ describe "Authentication" do
       let(:user) { Fabricate(:user) }
       before { sign_in user }
 
-      it { should have_selector('title',       text: user.name) }
+      it { should have_content(user.name) }
       it { should have_link('Profile',         href: user_path(user)) }
       it { should have_link('Settings',        href: edit_user_path(user)) }
       it { should have_link('Users',           href: users_path) }
@@ -73,7 +73,7 @@ describe "Authentication" do
           end
 
           it "should render the default page" do
-            page.should have_selector('title', text: user.name)
+            page.should have_content(user.name)
           end
         end
 

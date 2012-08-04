@@ -21,8 +21,8 @@ Given /^the user submits valid signin information$/ do
   click_button "Sign in"
 end
 
-Then /^he should see his profile page$/ do
-  page.should have_selector('title', text: @user.name)
+Then /^he should see his home page$/ do
+  page.should have_content(@user.name)
 end
 
 Then /^he should see a signout link$/ do
