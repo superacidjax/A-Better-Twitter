@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'faker'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
 gem 'pg'

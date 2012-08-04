@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user,  only: [:index, :edit, :update]
+  before_filter :the_right_user, only: [:edit, :update]
 
   expose(:user)
+
+  def index
+    @users = User.paginate(page: params[:page])
+  end
 
   def create
     if user.save

@@ -1,33 +1,63 @@
 require 'spec_helper'
 
-describe "UserPages" do
+describe "User Pages" do
+
   subject { page }
 
+  describe "index" do
+
+    let(:user) { Fabricate(:user) }
+
+    before(:all) { 35.times { Fabricate(:user) } }
+    after(:all) { User.delete_all }
+
+    before(:each) do
+      sign_in user
+      visit users_path
+    end
+
+    it { should have_selector('title', text: 'All users') }
+    it { should have_selector('h1', text: 'All users') }
+
+    describe "pagination" do
+      it { should have_selector('div.pagination') }
+
+      it "should list each user" do
+        User.paginate(page: 1).each do |user|
+          page.should have_selector('li>a', text: user.name)
+        end
+      end
+    end
+
+  end
+
+
   describe "Sign up page" do
+
     before { visit signup_path }
       it { should have_selector('h1', text: 'Sign up') }
       it { should have_selector('title', text: full_title('Sign up')) }
-    end
+  end
 
-    describe "profile page" do
-      let(:user) { Fabricate(:user) }
+  describe "profile page" do
+    let(:user) { Fabricate(:user) }
 
-      before { visit user_path(user) }
+    before { visit user_path(user) }
 
-      it { should have_selector('h1', text: user.name) }
-      it { should have_selector('title', text: user.name) }
-    end
+    it { should have_selector('h1', text: user.name) }
+    it { should have_selector('title', text: user.name) }
+  end
 
-    describe "signup" do
+  describe "signup" do
 
-      before { visit signup_path }
+    before { visit signup_path }
 
-      let(:submit) { "Create my account" }
+    let(:submit) { "Create my account" }
 
-      describe "with invalid information" do
-        it "should not create a user" do
-          expect { click_button submit }.not_to change(User, :count)
-        end
+    describe "with invalid information" do
+      it "should not create a user" do
+        expect { click_button submit }.not_to change(User, :count)
+      end
 
         describe "after submission" do
           before { click_button submit}
@@ -51,6 +81,7 @@ describe "UserPages" do
         end
 
         describe "after saving a user" do
+
           before { click_button submit }
 
           let(:user) { User.find_by_email("brian@example.com") }

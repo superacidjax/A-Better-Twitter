@@ -1,6 +1,6 @@
 Fabricator(:user) do
-  name 'Brian Dear'
-  email 'superacidjax@me.com'
+  email { sequence(:email) { |i| "brian#{i}@example.com" } }
+  name { sequence(:name) { |i| "Brian Dear-#{i}" } }
   password 'password'
   password_confirmation 'password'
 end

@@ -1,6 +1,7 @@
 @import "bootstrap"
 
 $textBlack: #3f3d32
+$lightGrey: #eaeaea
 
 @mixin box_sizing
   -moz-box-sizing: border-box
@@ -126,3 +127,13 @@ input, textarea, select, .uneditable-input
 .field_with_errors
   @extend .control-group
   @extend .error
+
+.users
+  list-style: none
+  margin: 0
+  li
+    overflow: auto
+    padding: 10px
+    border-top: 1px solid $lightGrey
+    &:last-child
+      border-bottom: 1px solid $lightGrey
