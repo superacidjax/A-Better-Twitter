@@ -114,6 +114,18 @@ describe "Authentication" do
         specify { response.should redirect_to(root_path) }
       end
     end
+
+    describe "as non-admin user" do
+      let(:user) { Fabricate(:user) }
+      let(:non_admin) { Fabricate(:user) }
+
+      before { sign_in non_admin }
+
+      describe "submitting a Delete request to the Users#destroy action" do
+        before { delete user_path(user) }
+        specify { response.should redirect_to(root_path) }
+      end
+    end
   end
 
 end

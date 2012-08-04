@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user,  only: [:index, :edit, :update]
-  before_filter :the_right_user, only: [:edit, :update]
+  before_filter :the_right_user,  only: [:edit, :update]
+  before_filter :admin_user,      only: :destroy
 
   expose(:user)
 
@@ -25,7 +26,13 @@ class UsersController < ApplicationController
       redirect_to user
     else
     render 'edit'
+    end
   end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed!"
+    redirect_to users_path
   end
 
   private
@@ -39,5 +46,9 @@ class UsersController < ApplicationController
 
     def the_right_user
       redirect_to root_path unless current_user?(user)
+    end
+
+    def admin_user
+      redirect_to root_path unless current_user.admin?
     end
 end
