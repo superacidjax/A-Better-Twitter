@@ -58,11 +58,20 @@ describe "User Pages" do
 
   describe "profile page" do
     let(:user) { Fabricate(:user) }
+    let!(:note1) { Fabricate(:note, user: user, content: "Hi!") }
+    let!(:note2) { Fabricate(:note, user: user, content: "Bye") }
 
     before { visit user_path(user) }
 
     it { should have_selector('h1', text: user.name) }
     it { should have_selector('title', text: user.name) }
+
+    describe "notes" do
+      it { should have_content(note1.content) }
+      it { should have_content(note2.content) }
+      it { should have_content(user.notes.count) }
+    end
+
   end
 
   describe "signup" do

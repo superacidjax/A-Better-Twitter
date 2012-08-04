@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:notes) }
 
   it { should be_valid }
   it { should_not be_admin}
@@ -114,5 +115,28 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) {should_not be_blank }
+  end
+
+  describe "notes associations" do
+
+    before { @user.save }
+    let!(:older_note) do
+      Fabricate(:note, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_note) do
+      Fabricate(:note, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right not in the right order" do
+      @user.notes.should == [ newer_note, older_note]
+    end
+
+    it "should destroy dependent notes" do
+      notes = @user.notes
+      @user.destroy
+      notes.each do |note|
+        note.find_by_id(note.id).should be_nil
+      end
+    end
   end
 end

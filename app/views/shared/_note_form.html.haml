@@ -1,0 +1,4 @@
+= form_for(note) do |f|
+  .field
+    = f.text_area :content, placeholder: "Write a note.."
+  = f.submit "Post", class: "btn btn-large btn-primary"
