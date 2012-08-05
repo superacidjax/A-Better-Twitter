@@ -23,3 +23,4 @@ public/stylesheets/legacy.css
 public/stylesheets/scaffold.css
 public/stylesheets/whitespace-reset.css
 tmp/*
+log/*
