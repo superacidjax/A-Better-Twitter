@@ -7,7 +7,7 @@ gem 'faker'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
 gem 'pg'
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8.rc2'
 gem 'thin'
 
 group :production do

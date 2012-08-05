@@ -23,4 +23,17 @@ describe "Note Pages" do
       end
     end
   end
+
+  describe "note destruction" do
+    before { Fabricate(:note, user: user) }
+
+    describe "as the right user" do
+      before { visit root_path }
+
+      it "should delete a note" do
+        expect { click_link "delete" }.to change(Note, :count).by(-1)
+      end
+    end
+  end
+
 end

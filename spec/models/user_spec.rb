@@ -18,6 +18,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:notes) }
+  it { should respond_to(:feed) }
 
   it { should be_valid }
   it { should_not be_admin}
@@ -137,6 +138,16 @@ describe User do
       notes.each do |note|
         note.find_by_id(note.id).should be_nil
       end
+    end
+
+    describe "status" do
+      let(:unfollowed_note) do
+        Fabricate(:note, user: Fabricate(:user))
+      end
+
+      its(:feed) { should include(older_note) }
+      its(:feed) { should include(newer_note) }
+      its(:feed) { should_not include(unfollowed_note) }
     end
   end
 end

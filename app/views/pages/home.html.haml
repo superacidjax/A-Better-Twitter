@@ -5,6 +5,9 @@
         = render 'shared/user_info'
       %section
         = render 'shared/note_form'
+    .span8
+      %h3 Your Feed
+      = render partial: 'shared/feed'
 -else
   %center.hero-unit
     %h1 A Better Twitter
