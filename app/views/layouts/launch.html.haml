@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title
+      =full_title(yield(:title))
+    = stylesheet_link_tag    'launch', media: "all"
+    = javascript_include_tag 'application', 'launch'
+    = csrf_meta_tags
+    = yield :head
+    /[if IE]
+      = javascript_include_tag 'html5'
+  %body
+    .container
+      - flash.each do | key, value|
+        = content_tag(:div, value, class: "alert alert-#{key}")
+      = yield

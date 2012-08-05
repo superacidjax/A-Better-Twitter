@@ -1,5 +1,7 @@
 BetterTwitter::Application.routes.draw do
 
+  get "launch/index"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :notes, only: [:create, :destroy]
