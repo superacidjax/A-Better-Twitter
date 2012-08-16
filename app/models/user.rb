@@ -39,8 +39,7 @@ class User < ActiveRecord::Base
 
 
   def feed
-    #only a proto-feed not the final implementation
-    Note.where("user_id = ?", id)
+    Note.from_users_followed_by(self)
   end
 
   private

@@ -151,10 +151,21 @@ describe User do
       let(:unfollowed_note) do
         Fabricate(:note, user: Fabricate(:user))
       end
+      let(:followed_user) { Fabricate(:user) }
+
+      before do
+        @user.follow!(followed_user)
+        3.times { followed_user.notes.create!(content: "Hey hey!") }
+      end
 
       its(:feed) { should include(older_note) }
       its(:feed) { should include(newer_note) }
       its(:feed) { should_not include(unfollowed_note) }
+      its(:feed) do
+        followed_user.notes.each do |note|
+          should include(note)
+        end
+      end
     end
   end
 
