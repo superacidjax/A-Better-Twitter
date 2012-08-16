@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     if user.save
       sign_in user
-      flash[:success] = "Welcome to a Better Twitter!"
+      flash[:success] = "Welcome to MamaBirds!"
       redirect_to root_path
     else
       render :new
