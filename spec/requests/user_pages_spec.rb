@@ -149,8 +149,11 @@ describe "User Pages" do
       describe "with valid information" do
 
         before do
-          fill_in "Name",         with: "Brian Dear"
+          fill_in "Username",     with: "superacidjax"
+          fill_in "First name",   with: "Brian"
+          fill_in "Last name",    with: "Dear"
           fill_in "Email",        with: "brian@example.com"
+          fill_in "Zip/Postal Code",  with: "77088"
           fill_in "Password",     with: "password"
           fill_in "Confirmation", with: "password"
         end
@@ -196,7 +199,7 @@ describe "User Pages" do
       let(:new_name) { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",             with: new_name
+        fill_in "Username",         with: new_name
         fill_in "Email",            with: new_email
         fill_in "Password",         with: user.password
         fill_in "Confirm Password", with: user.password

@@ -5,11 +5,20 @@
   .span6.offset3
     = form_for(user) do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name
+      = f.label :name, "Username"
       = f.text_field :name
 
+      = f.label :first_name
+      = f.text_field :first_name
+
+      = f.label :last_name
+      = f.text_field :last_name
+
+      = f.label :zip_code, "Zip/Postal Code"
+      = f.telephone_field :zip_code
+
       = f.label :email
-      = f.text_field :email
+      = f.email_field :email
 
       = f.label :password
       = f.password_field :password
