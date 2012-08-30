@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :first_name, :last_name, :zip_code, :email, :password,
                   :password_confirmation
   has_secure_password
+  has_many :groups
   has_many :notes, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id",
                                         dependent: :destroy

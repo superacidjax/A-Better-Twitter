@@ -30,6 +30,7 @@ describe User do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:unfollow!) }
+  it { should respond_to(:groups) }
 
   it { should be_valid }
   it { should_not be_admin}
@@ -208,6 +209,21 @@ describe User do
 
       it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
+    end
+  end
+
+  describe "group associations" do
+
+    before { @user.save }
+    let!(:b_group) do
+      Fabricate(:group, user: @user, name: "BBB")
+    end
+    let!(:a_group) do
+      Fabricate(:group, user: @user, name: "AAA")
+    end
+
+    it "should have the right group in the right order" do
+      @user.groups.should == [a_group, b_group]
     end
   end
 

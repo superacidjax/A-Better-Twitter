@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816024815) do
+ActiveRecord::Schema.define(:version => 20120830024719) do
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "groups", ["name", "category"], :name => "index_groups_on_name_and_category"
 
   create_table "notes", :force => true do |t|
     t.string   "content"
