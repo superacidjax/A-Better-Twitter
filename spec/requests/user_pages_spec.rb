@@ -60,6 +60,8 @@ describe "User Pages" do
     let(:user) { Fabricate(:user) }
     let!(:note1) { Fabricate(:note, user: user, content: "Hi!") }
     let!(:note2) { Fabricate(:note, user: user, content: "Bye") }
+    let!(:group1) { Fabricate(:group, user: user, name: "BBB Group") }
+    let!(:group2) { Fabricate(:group, user: user, name: "AAA Group") }
 
 
     before do
@@ -74,6 +76,11 @@ describe "User Pages" do
       it { should have_content(note1.content) }
       it { should have_content(note2.content) }
       it { should have_content(user.notes.count) }
+    end
+
+    describe "groups user owns" do
+      it { should have_content(group1.name) }
+      it { should have_content(group2.name) }
     end
 
     describe "follow/unfollow buttons" do
