@@ -1,0 +1,7 @@
+- if current_user.groups.any?
+  %h3
+    Groups I manage
+  %ul
+    - current_user.groups.each do |group|
+      %li
+        = group.name

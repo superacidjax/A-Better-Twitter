@@ -1,0 +1,9 @@
+= form_for(group) do |f|
+  .field
+    = f.label :name, "Group Name"
+    = f.text_field :name, placeholder: "enter a name for your group"
+    = f.label :description, "Description"
+    = f.text_area :description, placeholder: "enter a short description for your group"
+    = f.label :category
+    = f.text_field :category, placeholder: "enter a category for your group"
+  = f.submit "Create my group!", class: "btn btn-large btn-primary"

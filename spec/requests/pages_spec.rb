@@ -11,9 +11,12 @@ describe "Pages" do
 
       describe "for signed-in users" do
         let(:user) { Fabricate(:user) }
+
         before do
           Fabricate(:note, user: user, content: "Lorum ipsum")
           Fabricate(:note, user: user, content: "Brian is great")
+          Fabricate(:group, user: user, name: "BBB")
+          Fabricate(:group, user: user, name: "ABB")
           sign_in user
           visit root_path
         end
@@ -22,6 +25,12 @@ describe "Pages" do
             page.should have_selector("li##{item.id}", text: item.content)
           end
         end
+
+        it "should show the user's groups" do
+          page.should have_content("ABB")
+          page.should have_content("BBB")
+        end
+
 
         describe "follower/following counts" do
           let(:other_user) { Fabricate(:user) }
@@ -32,6 +41,10 @@ describe "Pages" do
 
           it { should have_link("following", href: following_user_path(user)) }
           it { should have_link("1 follower", href: followers_user_path(user)) }
+        end
+
+        describe "create group link" do
+          it { should have_link('Create a group'), href: new_group_path }
         end
       end
   end
