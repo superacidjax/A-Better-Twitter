@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
       if group.errors.any?
         flash[:failure] = "I'm sorry! #{group.errors.full_messages}"
       end
-      render 'pages/home'
+      render 'groups/new'
     end
   end
 

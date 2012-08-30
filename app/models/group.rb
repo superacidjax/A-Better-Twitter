@@ -8,4 +8,8 @@ class Group < ActiveRecord::Base
   belongs_to :user
 
   default_scope order: 'groups.name'
+
+  CATEGORIES = ['hobbies', 'parenting', 'gaming', 'sports', 'technology',
+                'politics', 'NSFW', 'music', 'travel', 'education',
+                'home & garden', 'entertainment']
 end

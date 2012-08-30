@@ -5,6 +5,6 @@
   %span.content
     = feed_item.content
   %span.timestamp
-    Posted #{time_ago_in_words(feed_item.created_at)} ago..
+    Posted #{time_ago_in_words(feed_item.created_at)} ago in group name.
   - if current_user?(feed_item.user)
     = link_to "delete", feed_item, method: :delete, confirm: "Are you sure?", title: feed_item.content
