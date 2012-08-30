@@ -31,6 +31,10 @@ describe User do
   it { should respond_to(:follow!) }
   it { should respond_to(:unfollow!) }
   it { should respond_to(:groups) }
+  it { should respond_to(:memberships) }
+  it { should respond_to(:group_memberships) }
+  it { should respond_to(:member?) }
+  it { should respond_to(:join!) }
 
   it { should be_valid }
   it { should_not be_admin}
@@ -225,6 +229,30 @@ describe User do
     it "should have the right group in the right order" do
       @user.groups.should == [a_group, b_group]
     end
+  end
+
+  describe "joining groups" do
+    let(:group) { Fabricate(:group, user_id: 2) }
+    before do
+      @user.save
+      @user.join!(group)
+    end
+
+    it { should be_member(group) }
+    its(:group_memberships) { should include(group) }
+  end
+
+  describe "leaving groups" do
+    let(:group) { Fabricate(:group, user_id: 2) }
+    let(:member) { Fabricate(:user) }
+    before do
+      member.save
+      member.join!(group)
+      member.leave!(group)
+    end
+
+    it { should_not be_member(group) }
+    its(:group_memberships) { should_not include(group) }
   end
 
 end

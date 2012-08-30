@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: "follower_id",
                                         dependent: :destroy
 
+  has_many :memberships, foreign_key: "group_member_id", dependent: :destroy
+  has_many :group_memberships, through: :memberships
+
   has_many :followed_users, through: :relationships, source: :followed
 
   has_many :reverse_relationships,      foreign_key: "followed_id",
@@ -40,6 +43,18 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user).destroy
     #relationships.find_by_follower_id(other_user).destroy
+  end
+
+  def member?(group)
+    memberships.find_by_group_membership_id(group.id)
+  end
+
+  def join!(group)
+    memberships.create!(group_membership_id: group.id)
+  end
+
+  def leave!(group)
+    memberships.find_by_group_membership_id(group.id).destroy
   end
 
 

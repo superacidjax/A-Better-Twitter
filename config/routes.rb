@@ -2,13 +2,14 @@ BetterTwitter::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :memberships
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :notes, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :groups
+  resources :memberships
 
   root to: 'pages#home'
 

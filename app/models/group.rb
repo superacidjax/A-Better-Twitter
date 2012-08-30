@@ -6,6 +6,7 @@ class Group < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 255 }
   validates :category, presence: true, length: {maximum: 30 }
   belongs_to :user
+  has_many :members, through: :memberships, source: "user_id"
 
   default_scope order: 'groups.name'
 
