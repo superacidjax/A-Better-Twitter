@@ -9,7 +9,7 @@ describe ApplicationHelper do
     end
 
     it "should include the base title" do
-      full_title('foo').should =~ /^A Better Twitter/
+      full_title('foo').should =~ /^MamaBirds/
     end
 
     it "should not include a bar on the home page" do
