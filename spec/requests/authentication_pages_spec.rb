@@ -122,6 +122,22 @@ describe "Authentication" do
         end
       end
 
+    describe "in the Groups controller" do
+
+        describe "submitting to the create action" do
+          before { post groups_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before do
+            group = Fabricate(:group, user: user)
+            delete group_path(group)
+          end
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+
       describe "in the Relationships controller" do
 
         describe "submitting to the create action" do
