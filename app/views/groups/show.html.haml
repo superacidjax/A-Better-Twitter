@@ -1,8 +1,16 @@
 .row
+  - if current_user == group.user
+    I'm the boss of this group
+  - elsif current_user.member?(group)
+    I'm a member
+  -else
+    I'm ain't jack shit up in here.
   %aside.span4
     %section
       %h1
         = group.name
+      %br
+        = group.user.name
       %h2
         = group.category
       %p
