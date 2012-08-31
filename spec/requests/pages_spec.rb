@@ -5,7 +5,7 @@ describe "Pages" do
 
   describe "Home page" do
     before { visit root_path }
-      it { should have_selector('h1', text: 'MamaBirds') }
+      it { should have_selector('h3', text: 'Your Feed') }
       it { should have_selector('title', text: full_title('')) }
       it { should_not have_selector('title', text: '| Home') }
 
@@ -46,8 +46,31 @@ describe "Pages" do
         describe "create group link" do
           it { should have_link('Create a group'), href: new_group_path }
         end
-      end
-  end
+
+        describe "view groups a user manages"
+          let(:user) { Fabricate(:user) }
+          let(:group) { Fabricate(:group, user: user) }
+          before do
+            sign_in user
+            group.save
+            visit root_path
+          end
+
+          it { should have_link(group.name, href: group_path(group)) }
+        end
+
+        describe "view groups of which a user is a member"
+          let(:user) { Fabricate(:user) }
+          let(:other_user) { Fabricate(:user) }
+          let(:group) { Fabricate(:group, user: other_user) }
+          before do
+            sign_in user
+            user.join!(group)
+            visit root_path
+          end
+
+          it { should have_link(group.name, href: group_path(group)) }
+        end
 
   describe "Help page" do
     before { visit help_path}

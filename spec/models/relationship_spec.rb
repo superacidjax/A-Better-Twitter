@@ -20,10 +20,10 @@ describe Relationship do
   end
 
     describe "follower methods" do
-    it { should respond_to(:follower) }
-    it { should respond_to(:followed) }
-    its(:follower) { should == follower }
-    its(:followed) { should == followed }
+      it { should respond_to(:follower) }
+      it { should respond_to(:followed) }
+      its(:follower) { should == follower }
+      its(:followed) { should == followed }
   end
 
   describe "when follower it is not present" do
