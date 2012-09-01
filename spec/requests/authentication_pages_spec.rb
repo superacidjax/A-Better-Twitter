@@ -138,10 +138,23 @@ describe "Authentication" do
         end
       end
 
+    describe "in the Memberships controller" do
+
+        describe "submitting to the create action" do
+          before { post memberships_path(1) }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete 'memberships/1' }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+
       describe "in the Relationships controller" do
 
         describe "submitting to the create action" do
-          before { post relationships_path }
+          before { post relationships_path(1) }
           specify { response.should redirect_to(signin_path) }
         end
 

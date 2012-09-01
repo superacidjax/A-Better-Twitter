@@ -1,0 +1,2 @@
+= form_for(current_user.memberships.find_by_group_membership_id(group.id), html: { method: :delete }, remote: true) do |f|
+  = f.submit "Leave this group", class: "btn btn-large"
