@@ -245,7 +245,7 @@ DEPENDENCIES
   guard-spork
   hashrocket-rails
   heroku
-  jquery-rails
+  jquery-rails (= 2.0.2)
   launchy
   newrelic_rpm
   pg
