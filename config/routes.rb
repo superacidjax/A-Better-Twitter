@@ -9,7 +9,7 @@ BetterTwitter::Application.routes.draw do
   resources :notes, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :groups
-  resources :memberships
+  resources :memberships, only: [:create, :destroy]
 
   root to: 'pages#home'
 
