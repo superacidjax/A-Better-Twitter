@@ -56,6 +56,48 @@ describe "User Pages" do
       it { should have_selector('title', text: full_title('Sign up')) }
   end
 
+  describe "public group page" do
+    let(:user) { Fabricate(:user) }
+    let(:user2) { Fabricate(:user) }
+    let!(:group) { Fabricate(:group, user_id: user2.id) }
+
+    before do
+      visit group_path(group)
+    end
+
+    it { should have_selector('h1', text: group.name) }
+    it { should have_link('Sign up now!', href: signup_path) }
+  end
+
+  describe "joining a group" do
+    let(:user) { Fabricate(:user) }
+    let(:user2) { Fabricate(:user) }
+    let!(:group) { Fabricate(:group, user_id: user2.id) }
+
+    before do
+      sign_in user
+      visit group_path(group)
+    end
+
+    it { should have_selector('h1', text: group.name) }
+    it { should have_button('Join this group') }
+  end
+
+  describe "leaving a group" do
+    let(:user) { Fabricate(:user) }
+    let(:user2) { Fabricate(:user) }
+    let!(:group) { Fabricate(:group, user_id: user2.id) }
+
+    before do
+      sign_in user
+      user.join!(group)
+      visit group_path(group)
+    end
+
+    it { should have_selector('h1', text: group.name) }
+    it { should have_button('Leave this group') }
+  end
+
   describe "profile page" do
     let(:user) { Fabricate(:user) }
     let!(:note1) { Fabricate(:note, user: user, content: "Hi!") }
@@ -81,6 +123,35 @@ describe "User Pages" do
     describe "groups user owns" do
       it { should have_content(group1.name) }
       it { should have_content(group2.name) }
+    end
+
+    describe "join/leave buttons" do
+      let(:group) { Fabricate(:group, user_id: 2) }
+      before { sign_in user }
+
+      describe "clicking join button" do
+        before { visit group_path(group) }
+
+        it "should increment the user group membership count" do
+          expect do
+            click_button('Join this group')
+          end.to change(user.memberships, :count).by(1)
+        end
+      end
+
+      describe "clicking leave button" do
+        before do
+          user.join!(group)
+          visit group_path(group)
+        end
+
+        it "should deincrement the user group membership count" do
+          expect do
+            click_button('Leave this group')
+          end.to change(user.memberships, :count).by(-1)
+        end
+      end
+
     end
 
     describe "follow/unfollow buttons" do
