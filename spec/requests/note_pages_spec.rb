@@ -10,7 +10,7 @@ describe "Note Pages" do
 
   describe "note creation" do
     before { visit root_path }
-
+###TODO: with valid information
     describe "with invalid information" do
 
       it "it should not create a note" do
@@ -25,10 +25,12 @@ describe "Note Pages" do
   end
 
   describe "note destruction" do
-    before { Fabricate(:note, user: user) }
+    before { Fabricate(:note, user: user, group_id: 99) }
 
     describe "as the right user" do
-      before { visit root_path }
+      before do
+        visit root_path
+      end
 
       it "should delete a note" do
         expect { click_link "delete" }.to change(Note, :count).by(-1)

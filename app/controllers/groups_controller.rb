@@ -3,10 +3,12 @@ class GroupsController < ApplicationController
   before_filter :the_right_user, only: :destroy
 
   expose(:group)
+  expose(:groups)
 
   def create
     group = current_user.groups.build(params[:group])
     if group.save
+      current_user.join!(group)
       flash[:success] = "Group created!"
       redirect_to root_path
     else
@@ -27,7 +29,7 @@ class GroupsController < ApplicationController
 
     def the_right_user
       group = current_user.groups.find_by_id(params[:id])
-      flash[:warning] = "Hack the planet! (nice try, but no cigar..)"
       redirect_to root_path if group.nil?
+      flash[:warning] = "Hack the planet! (nice try, but no cigar..)" if group.nil?
     end
 end

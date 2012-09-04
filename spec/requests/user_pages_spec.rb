@@ -99,7 +99,8 @@ describe "User Pages" do
   end
 
   describe "profile page" do
-    let(:user) { Fabricate(:user) }
+    let!(:user) { Fabricate(:user) }
+    let!(:user2) { Fabricate(:user, id: 732) }
     let!(:note1) { Fabricate(:note, user: user, content: "Hi!") }
     let!(:note2) { Fabricate(:note, user: user, content: "Bye") }
     let!(:group1) { Fabricate(:group, user: user, name: "BBB Group") }
@@ -117,12 +118,13 @@ describe "User Pages" do
     describe "notes" do
       it { should have_content(note1.content) }
       it { should have_content(note2.content) }
+      #it { should have_content(note1.group.name) }
       it { should have_content(user.notes.count) }
     end
 
     describe "groups user owns" do
-      it { should have_content(group1.name) }
-      it { should have_content(group2.name) }
+      it { should have_selector('li', text: group1.name) }
+      it { should have_selector('li', text: group2.name) }
     end
 
     describe "join/leave buttons" do

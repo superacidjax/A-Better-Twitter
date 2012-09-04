@@ -12,6 +12,7 @@ describe Note do
 
   it { should respond_to(:content) }
   it { should respond_to(:user_id) }
+  it { should respond_to(:group_id) }
   it { should respond_to(:user) }
   its(:user) { should == user }
 
@@ -39,5 +40,21 @@ describe Note do
   describe "with content that is too long" do
     before { @note.content = "z" * 201 }
     it { should_not be_valid }
+  end
+
+  describe "with no group" do
+    before do
+      @note.content = "zzz"
+      @note.group_id = nil
+    end
+    it { should_not be_valid }
+  end
+
+  describe "with a group" do
+    before do
+      @note.content = "zzz"
+      @note.group_id = 99
+    end
+    it { should be_valid }
   end
 end

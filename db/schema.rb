@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830175538) do
+ActiveRecord::Schema.define(:version => 20120901185327) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(:version => 20120830175538) do
   create_table "notes", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "group_id",   :default => 1
   end
 
   add_index "notes", ["user_id", "created_at"], :name => "index_notes_on_user_id_and_created_at"

@@ -2,9 +2,9 @@ namespace :db do
   desc "Fill database with sample users"
   task populate: :environment do
     make_users
-    make_notes
+    # make_notes
     make_relationships
-    make_groups
+    # make_groups
   end
 end
 

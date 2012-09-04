@@ -10,11 +10,20 @@
     %section
       - if user.groups.any?
         %h3
-          Groups I manage
+          I manage #{pluralize(user.groups.count, "group")}.
         %ul
           - user.groups.each do |group|
             %li
-              = group.name
+              = link_to group.name, group_path(group)
+    %section
+      - if user.group_memberships.any?
+        #group.memberships
+          %h3
+            I am a member of #{pluralize(user.memberships.count, "group")}.
+          %ul
+            - user.group_memberships.each do |membership|
+              %li
+                = link_to membership.name, group_path(membership)
   .span8
     = render 'follow_form' if signed_in?
     - if user.notes.any?
