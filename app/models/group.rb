@@ -15,4 +15,9 @@ class Group < ActiveRecord::Base
   CATEGORIES = ['hobbies', 'parenting', 'gaming', 'sports', 'technology',
                 'politics', 'NSFW', 'music', 'travel', 'education',
                 'home & garden', 'entertainment']
+
+  def feed
+    Note.find_by_group_id(group.id)
+  end
+
 end

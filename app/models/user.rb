@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     Note.from_users_followed_by(self)
   end
 
+  def group_feed
+    Note.from_groups_followed_by(self)
+  end
+
   private
 
     def create_remember_token

@@ -16,7 +16,10 @@ class Note < ActiveRecord::Base
           user_id: user.id)
   end
 
-  # MY_GROUP_NAMES = ['hobbies', 'parenting', 'gaming', 'sports', 'technology',
-  #               'politics', 'NSFW', 'music', 'travel', 'education',
-  #               'home & garden', 'entertainment']
+  def self.from_groups_followed_by(user)
+    followed_user_ids = "SELECT group_membership_id FROM memberships
+                         WHERE group_member_id = :user_id"
+    where("group_id IN (#{followed_user_ids}) OR user_id = :user_id",
+          user_id: user.id)
+  end
 end

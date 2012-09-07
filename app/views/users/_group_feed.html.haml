@@ -1,0 +1,4 @@
+- if @group_feed_items.any?
+  %ol.notes
+    = render partial: 'groups/feed_item', collection: @group_feed_items
+  = will_paginate @group_feed_items

@@ -5,6 +5,10 @@ class GroupsController < ApplicationController
   expose(:group)
   expose(:groups)
 
+  def show
+    @group_feed_items = group.notes.paginate(page: params[:page])
+  end
+
   def create
     group = current_user.groups.build(params[:group])
     if group.save

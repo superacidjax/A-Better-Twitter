@@ -5,7 +5,8 @@ describe "Pages" do
 
   describe "Home page" do
     before { visit root_path }
-      it { should have_selector('h3', text: 'Your Feed') }
+      it { should have_selector('h3', text: 'People you follow') }
+      it { should have_selector('h3', text: 'In your groups') }
       it { should have_selector('title', text: full_title('')) }
       it { should_not have_selector('title', text: '| Home') }
 

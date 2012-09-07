@@ -12,8 +12,11 @@
       %section
         = link_to "Create a group", new_group_path
     .span8
-      %h3 Your Feed
+      %h3 People you follow
       = render partial: 'shared/feed'
+      %h3
+        In your groups
+      = render partial: 'groups/feed'
 -else
   %center.hero-unit
     %h1 MamaBirds

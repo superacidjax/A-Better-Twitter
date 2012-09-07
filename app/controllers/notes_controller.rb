@@ -14,6 +14,7 @@ expose(:note)
         flash[:failure] = "I'm sorry! #{note.errors.full_messages}"
         #@feed_items = current_user.feed.paginate(page: params[:page])
         @feed_items = []
+        @group_feed_items = []
       end
       render 'pages/home'
     end

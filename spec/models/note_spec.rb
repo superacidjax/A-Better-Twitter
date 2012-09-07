@@ -57,4 +57,38 @@ describe Note do
     end
     it { should be_valid }
   end
+
+  describe "from_users_followed_by" do
+
+    let(:user)       { Fabricate(:user) }
+    let(:other_user) { Fabricate(:user) }
+    let(:third_user) { Fabricate(:user) }
+
+    before { user.follow!(other_user) }
+
+    let(:own_post)        {       user.notes.create!(content: "foo") }
+    let(:followed_post)   { other_user.notes.create!(content: "bar") }
+    let(:unfollowed_post) { third_user.notes.create!(content: "baz") }
+    subject { Note.from_users_followed_by(user) }
+
+    it { should include(own_post) }
+    it { should include(followed_post) }
+    it { should_not include(unfollowed_post) }
+  end
+
+  # describe "from_groups_followed_by" do
+  #   let(:user)        { Fabricate(:user) }
+  #   let(:other_user)  { Fabricate(:user, id: 4) }
+  #   let(:group)       { Fabricate(:group, user_id: 4) }
+
+  #   before do
+  #     user.join!(group)
+  #   end
+
+  #   let(:group_post) { other_user.notes.create!(content: "Foo!", group_id: 1) }
+  #   subject { Note.from_groups_followed_by(user) }
+
+  #   it { should include(group_post) }
+
+  # end
 end
