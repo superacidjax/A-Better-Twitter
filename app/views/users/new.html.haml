@@ -1,29 +1,44 @@
-= provide(:title, 'Sign up')
-%h1
-  Sign up
-.row
-  .span6.offset3
-    = form_for(user) do |f|
-      = render 'shared/error_messages', object: f.object
-      = f.label :name, "Username"
-      = f.text_field :name
+= provide(:title, 'Group Communications. Easy.')
+.content
+  %h1
+    Zebra Crossing
+  %h2
+    Group communication. Easy.
+  %h3#getstarted
+    Get started in 10 seconds.
+  %h3#signup
+    Sign up now!
+  %h3#blank
+    %br
+  %h4#signup
+    (it's free)
+  %h5#more
+    Learn more...
 
-      = f.label :first_name
-      = f.text_field :first_name
+#hero
+  .vertical.stripes
+    / .biglogo#logo
+    /   = image_tag('zebracrossing_big_logo.png')
 
-      = f.label :last_name
-      = f.text_field :last_name
-
-      = f.label :zip_code, "Zip/Postal Code"
-      = f.telephone_field :zip_code
-
-      = f.label :email
-      = f.email_field :email
-
-      = f.label :password
-      = f.password_field :password
-
-      = f.label :password_confirmation, "Confirmation"
-      = f.password_field :password_confirmation
-
-      = f.submit "Create my account", class: "btn btn=large btn-primary"
+    #form
+      / .biglogo#logo
+      /   = image_tag('zebracrossing_big_logo.png')
+      / #right
+      = render 'users/signup'
+#learnmore
+  %h2
+    Zebra Crossing is all about your group.
+  %p
+    You can create groups, join groups and post messages. It's like Twitter, but just for you and your group. You can follow individual users not in your groups, but the focus is on helping your groups communicate! Your inbox will thank you.
+  %br
+  %p
+    Perfect for political clubs, civic groups, sports teams, bowling leagues, gamer groups, parents, students, musicians and more. Zebra Crossing is currently in the very early stages, so there are only a few features, but we're hard at work at adding features and listening to users to make Zebra Crossing your favorite way to communicate with your group.
+  %br
+  %p
+    It's free to join, free to create and join public groups. Soon, we'll add private groups which will cost a small fee, but will provide you and your members a password-protected area where you can do your thing in complete privacy.
+  %br
+  %p
+    We don't sell your personal data like Facebook. We don't fill your timeline up with noise like Twitter. We keep it simple.
+  %br
+  %p
+    We built Zebra Crossing because we wanted a simple, easy way for groups to communicate. Eventually, we'll add a marketplace where group members can post classified ads for other members of their group. We'll also be developing a mobile app as well as a public API so other people can build apps to take full advantage of the Zebra Crossing platform.

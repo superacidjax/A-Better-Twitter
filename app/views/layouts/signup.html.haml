@@ -11,7 +11,7 @@
       = javascript_include_tag 'html5'
   %body
     .container
-      = render 'layouts/navheader'
+      = render 'layouts/header'
       - flash.each do | key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")
       = yield

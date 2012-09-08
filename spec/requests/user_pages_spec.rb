@@ -52,8 +52,9 @@ describe "User Pages" do
   describe "Sign up page" do
 
     before { visit signup_path }
-      it { should have_selector('h1', text: 'Sign up') }
-      it { should have_selector('title', text: full_title('Sign up')) }
+      it { should have_selector('h1', text: 'Zebra Crossing') }
+      it { should have_selector('title',
+          text: full_title('Group Communications. Easy.')) }
   end
 
   describe "public group page" do
@@ -220,7 +221,6 @@ describe "User Pages" do
 
         describe "after submission" do
           before { click_button submit}
-        it { should have_selector('title', text: 'Sign up') }
         it { should have_content('error') }
         it {should_not have_content('Password digest') }
         end
@@ -229,13 +229,12 @@ describe "User Pages" do
       describe "with valid information" do
 
         before do
-          fill_in "Username",     with: "superacidjax"
-          fill_in "First name",   with: "Brian"
-          fill_in "Last name",    with: "Dear"
-          fill_in "Email",        with: "brian@example.com"
-          fill_in "Zip/Postal Code",  with: "77088"
-          fill_in "Password",     with: "password"
-          fill_in "Confirmation", with: "password"
+          fill_in "user_name",     with: "superacidjax"
+          fill_in "first name",   with: "Brian"
+          fill_in "last name",    with: "Dear"
+          fill_in "email",        with: "brian@example.com"
+          fill_in "password",     with: "password"
+          fill_in "password confirmation", with: "password"
         end
 
         it "should create a user" do
@@ -250,7 +249,7 @@ describe "User Pages" do
 
           it { should have_content(user.name) }
           it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-          it { should have_link('Sign out') }
+          it { should have_link('sign out') }
         end
       end
   end
@@ -270,7 +269,7 @@ describe "User Pages" do
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { click_button "save changes" }
 
       it { should have_content('error') }
     end
@@ -279,15 +278,15 @@ describe "User Pages" do
       let(:new_name) { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Username",         with: new_name
-        fill_in "Email",            with: new_email
-        fill_in "Password",         with: user.password
-        fill_in "Confirm Password", with: user.password
-        click_button "Save changes"
+        fill_in "username",         with: new_name
+        fill_in "email",            with: new_email
+        fill_in "password",         with: user.password
+        fill_in "password confirmation", with: user.password
+        click_button "save changes"
       end
 
       it { should have_selector('title', text: new_name) }
-      it { should have_link('Sign out', href: signout_path) }
+      it { should have_link('sign out', href: signout_path) }
       it { should have_selector('div.alert.alert-success') }
       specify { user.reload.name.should == new_name }
       specify { user.reload.email.should == new_email }

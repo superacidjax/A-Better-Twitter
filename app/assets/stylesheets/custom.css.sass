@@ -1,186 +1,268 @@
-@import "bootstrap"
+@import "mixins"
 
-$textBlack: #3f3d32
-$lightGrey: #eaeaea
-
-@mixin box_sizing
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
-  box-sizing: border-box
-
-body
-  padding-top: 60px
-
-  section
-    overflow: auto
-
-  textarea
-    resize: vertical
-
-  .center
-    text-align: center
-    h1
-      margin-bottom: 10px
-
-  center.hero-unit
-    h1, p
-      color: $textBlack
-
-  h1, h2, h3, h4, h5, h6
-    line-height: 1
-
-  h1
-    font-size: 3em
-    letter-spacing: -2px
-    text-align: center
-    margin-bottom: 30px
-
-  h2
-    font-size 1.7em
-    letter-spacing: -1px
-    margin-bottom: 30px
-    text-align: center
-    font-weight: normal
-    color: $textBlack
-
-  p
-    font-size: 1.1em
-    line-height: 1.7em
-
-  #logo
-    float: left
-    margin-right: 10px
-    font-size: 1.7em
-    color: white
-    text-transform: uppercase
-    padding-top: 9px
-    font-weight: bold
-    line-height: 1
-    &:hover
-      color: red
-      text-decoration: none
-
-  footer
-    margin-top: 45px
-    padding-top: 5px
-    border-top: 1px solid #eaeaea
-    color: $textBlack
-    a
-      color: #555
-      &:hover
-        color: #222
-    small
-      float: left
-    ul
-      float: right
-      list-style: none
-      li
-        float: left
-        margin-left: 10px
-
-  .debug_dump
-    clear: both
-    float: left
-    width: 100%
-    margin-top: 45px
-    @include box_sizing
-
-/* sidebar */
-
-aside
-  section
-    padding: 10px 0
-    border-top: 8px solid #fff
-    &:first-child
-      border: 0
-      padding-top: 0
-    span
-      display: block
-      margin-bottom: 3px
-      line-height: 1
-    h1
-      font-size: 1.6em
-      text-align: left
-      letter-spacing: -1px
-      margin-bottom: 3px
-
-  .gravatar
-    float: left
-    margin-right: 10px
-
-/* forms */
-
-input, textarea, select, .uneditable-input
-  border: 1px solid #bbb
-  width: 100%
-  height: auto
-  margin-bottom: 15px
-  @include box_sizing
-
-/* error explaination */
-
-#error_explanation
-  padding-top: 18px
-  color: #f00
-  ul
-    list-style: none
-    margin: 0 0 18px 0
-
-.field_with_errors
-  @extend .control-group
-  @extend .error
-
-.users
-  list-style: none
+html, body
+  height: 100%
+  padding: 0
   margin: 0
-  li
-    overflow: auto
-    padding: 10px
-    border-top: 1px solid $lightGrey
-    &:last-child
-      border-bottom: 1px solid $lightGrey
 
-.notes
-  list-style: none
-  margin: 10px 0 0 0 0
+html
+  font-size: 16px
+body
+  font-size: 62.5%
+  font: normal 13px "myriad-pro", sans-serif
+  color: #3f3d32
+  -webkit-font-smoothing: anti-aliased
+  background: #fff
 
+header
+  // background-color:  #3f3d32
+  position: fixed
+  width: 100%
+  z-index: 9999
+  padding: 15px 0 0 0
+  .container
+    padding: 0 10px
+    .logo
+      width: 55%
+      float: left
+      img
+        float: left
+        padding: 0 12px 12px 12px
+      h1
+        font-family: "ff-enzo-web",sans-serif
+        font-size: 3.0em
+        color: #CD2626
+        span
+          color: #3f3d32
+          margin-left: -.1em
+      h2
+        margin-left: 36px
+        padding-top: 2px
+        font-family: "ff-tisa-sans-web-pro"
+        font-style: italic
+        font-weight: bold
+        font-size: 1.5em
+      a
+        text-decoration: none
+        color: inherit
+ul.navigation
+  float: right
+  margin: auto
+  font-family: "ff-enzo-web",sans-serif
+  font-weight: 100
+  font-style: normal
+  padding-top: 12px
   li
-    padding: 10px 0
-    border-top: 1px solid #e8e8e8
+    display: block
+    float: left
+    a
+      color: #EDEDED
+      border: .1em groove transparent
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 2.3em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+    a:hover
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+.biglogo
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  float: left
+
+.stripes
+  height: 100%
+  width: 100%
+  -webkit-background-size: 50px 50px
+  -moz-background-size: 50px 50px
+  background-size: 50px 50px
+  /* Controls the size of the stripes
+  -moz-box-shadow: 1px 1px 8px gray
+  -webkit-box-shadow: 1px 1px 8px gray
+  box-shadow: 1px 1px 8px gray
+
+.vertical
+  background-color: #838B8B
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent))
+  background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -ms-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+
 
 .content
-  display: block
+  margin-top: 5%
+  padding-bottom: 5%
+  h1, h2, h3, h4
+    text-align: center
+  h1
+    font-size: 8em
+  h2
+    font-size: 3em
+  h3
+    font-size: 2em
+    margin-top: 2%
+  h3#signup
+    display: none
+    color: #EDEDED
+    border: .1em groove transparent
+    -moz-border-radius: 1.4em
+    -ms-border-radius: 1.4em
+    -o-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-size: 2.3em
+    padding: 6px 20px
+    text-shadow: 1px 1px 1px #E5E5E5
+    text-transform: lowercase
+    -webkit-transition: all 0.4s ease
+    -moz-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+    vertical-align: middle
+    text-decoration: none
+  h3#blank
+    display: none
+  h4
+    font-size: 1em
+    padding-top: 1%
+  h5
+    width: 70%
+    text-align: right
+    text-transform: uppercase
 
-.timestamp
-  color: $lightGrey
-
-.gravatar
-  float: left
-  margin-right
-
-aside
-  textarea
-    height: 100px
-    margin-bottom: 5px
-
-.stats
-  overflow: auto
-  a
-    float: left
-    padding: 0 10px
-    border-left: 1px solid $lightGrey
-    color: gray
-    &:first-child
-      padding-left: 0
-      border: 0
-    &:hover
+#form
+  padding-top: 2%
+  color: #EDEDED
+  #cancel
+    font-size: 2em
+    a
       text-decoration: none
-      color: $blue
-  strong
-    display: block
+    a:visited
+      color: inherit
+  width: 600px
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 2%
+  li
+    list-style-type: none
+  fieldset
+  input
+  input[type="text"]
+  input[type="password"]
+  input[type="email"]
+  textarea
+    width: 70%
 
-.user_avatars
-  overflow: auto
-  margin-top: 10px
-  .gravatar
-    margin: 1px 1px
+  input[type="date"], input[type="datetime"], input[type="datetime-local"],
+  input[type="email"], input[type="month"], input[type="number"], input[type="numeric"],
+  input[type="password"], input[type="phone"], input[type="search"],
+  input[type="tel"], input[type="text"], input[type="time"], input[type="url"],
+  input[type="week"], textarea,
+  select
+    padding-top: 50%
+    text-align: left
+    width: 100%
+    border: .1em solid #fff
+    padding: 6px 4px
+    outline: none
+    -moz-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-family: "ff-enzo-web",sans-serif
+    font-weight: 600
+    font-size: 1.3em
+    color: #3f3d32
+    margin: 0 0 20px 0
+    max-width: 100%
+    // display: block;
+    background: #ffffff
+    &:focus
+      border: .1em solid #25cdcd
+      color: #3f3d32
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      box-shadow:  0 0 3px rgba(0,0,0,.2)
+  select
+    padding: 0
+  textarea
+    min-height: 60px
+  label, legend
+    color: #EDEDED
+    padding-bottom: 1%
+    display: block
+    font-weight: bold
+    font-size: 1.3em
+  input[type="checkbox"]
+    display: inline
+  label span,
+  legend span
+    font-weight: normal
+    font-size: 15px
+    color: yellow
+input[type="submit"]
+  background-color: #EDEDED
+  text-align: center
+  font-family: "ff-enzo-web",sans-serif
+  font-weight: 100
+  font-style: normal
+  width: 400px
+  margin-left: auto
+  margin-right: auto
+  color: #CD2626
+  border: 1px solid #e5e5e5
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  font-size: 2em
+  padding: 6px 20px
+  text-shadow: 1px 1px 1px #E5E5E5
+  text-transform: uppercase
+  -webkit-transition: all 0.4s ease
+  -moz-transition: all 0.4s ease
+  -o-transition: all 0.4s ease
+  transition: all 0.4s ease
+  vertical-align: middle
+  text-decoration: none
+  &:hover
+    border: 1px groove transparent
+    background-color: #ffffff
+    background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+    background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: linear-gradient(top, #ffffff, #f7f7f7)
+    text-decoration: none
+#learnmore
+  display: none
+  padding: 5%
+  width: 800px
+  margin-left: auto
+  margin-right: auto
+  h2
+    font-size: 2em
+  p
+    font-size: 1.4em

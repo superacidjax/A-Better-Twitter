@@ -22,7 +22,7 @@ describe "Authentication" do
     end
 
     describe "after visiting another page" do
-      before { click_link "Home" }
+      before { click_link "home" }
       it { should_not have_error_message }
     end
 
@@ -31,15 +31,15 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_content(user.name) }
-      it { should have_link('Profile',         href: user_path(user)) }
-      it { should have_link('Settings',        href: edit_user_path(user)) }
-      it { should have_link('Users',           href: users_path) }
-      it { should have_link('Sign out',        href: signout_path) }
-      it { should_not have_selector('Sign in', href: signin_path) }
+      # it { should have_link('Profile',         href: user_path(user)) }
+      it { should have_link('settings',        href: edit_user_path(user)) }
+      # it { should have_link('Users',           href: users_path) }
+      it { should have_link('sign out',        href: signout_path) }
+      it { should_not have_selector('sign in', href: signin_path) }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
-        it { should have_link('Sign in') }
+        before { click_link "sign out" }
+        it { should have_link('sign in') }
       end
     end
   end
@@ -52,8 +52,8 @@ describe "Authentication" do
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
-          fill_in "Email", with: user.email
-          fill_in "Password", with: user.password
+          fill_in "email", with: user.email
+          fill_in "password", with: user.password
           click_button "Sign in"
         end
 
@@ -65,10 +65,10 @@ describe "Authentication" do
 
         describe "when signing in again" do
           before do
-            click_link "Sign out"
-            click_link "Sign in"
-            fill_in "Email", with: user.email
-            fill_in "Password", with: user.password
+            click_link "sign out"
+            click_link "sign in"
+            fill_in "email", with: user.email
+            fill_in "password", with: user.password
             click_button "Sign in"
           end
 

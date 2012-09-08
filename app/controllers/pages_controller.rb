@@ -11,6 +11,9 @@ expose(:group)
     end
   end
 
+  def landing
+  end
+
   def help
   end
 

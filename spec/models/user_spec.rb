@@ -14,7 +14,6 @@ describe User do
   it { should respond_to(:first_name) }
   it { should respond_to(:last_name) }
   it { should respond_to(:email) }
-  it { should respond_to(:zip_code) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -65,11 +64,6 @@ describe User do
 
   describe "when email is not present" do
     before { @user.email = " "}
-    it { should_not be_valid }
-  end
-
-  describe "when zip is not present" do
-    before { @user.zip_code = " "}
     it { should_not be_valid }
   end
 
