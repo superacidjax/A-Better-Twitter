@@ -1,17 +1,21 @@
 %header
-  .container
+  - unless signed_in?
     %ul.navigation
-    - if signed_in?
       %li
-        = link_to 'home', root_path
-      %li#about
-        = link_to 'sign out', signout_path
+        = link_to 'sign in', signin_path
+  - else
+    %img#littlebanner
+      = link_to image_tag('zebra_small_banner.png')
+    %ul.navigation
       %li
         = link_to 'settings', edit_user_path(current_user)
       %li#process
         = link_to 'help', '#'
-    - else
-
+      %li#about
+        = link_to 'sign out', signout_path
+-unless signed_in?
+  .bigbanner
+    = image_tag('zebra_big_banner.png')
 
 
 

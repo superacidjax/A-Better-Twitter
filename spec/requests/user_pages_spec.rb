@@ -54,7 +54,7 @@ describe "User Pages" do
     before { visit signup_path }
       it { should have_selector('h2', text: 'where groups come together') }
       it { should have_selector('title',
-          text: full_title('Group Communications. Easy.')) }
+          text: full_title('where groups come together')) }
   end
 
   describe "public group page" do
