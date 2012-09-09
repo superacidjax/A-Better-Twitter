@@ -1,10 +1,9 @@
 - user ||= current_user
 .stats
   %a{href: following_user_path(user)}
-    %strong#following.stat
-      following
-      = pluralize(user.followed_users.count, "user")
+    following
+    = pluralize(user.followed_users.count, "user")
+  %br
   %a{href: followers_user_path(user)}
-    %strong#followers.stat
-      with
-      = pluralize(user.followers.count, "follower")
+    with
+    = pluralize(user.followers.count, "follower")

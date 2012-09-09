@@ -1,13 +1,6 @@
 = provide(:title, 'Sign in')
-%br
-%br
-%br
-%h2
-  = link_to 'home', root_path
-%h1
-  Sign in
-.row
-  .span6.offset3
+.vertical.stripes
+  #form
     = form_for(:session, url: sessions_path) do |f|
       = f.label :email, 'email'
       = f.email_field :email

@@ -1,12 +1,12 @@
 - if signed_in?
   .row
-    %aside.span4
-      %section
-        = render 'shared/user_info'
-      %section
-        = render 'shared/stats'
-      %section
-        = render 'shared/note_form'
+    %section
+      = render 'shared/user_info'
+    %section
+      = render 'shared/stats'
+    %hr
+    %section
+      = render 'shared/note_form'
       %section
         = render 'shared/user_group_ownership'
       %section

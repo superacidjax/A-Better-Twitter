@@ -10,10 +10,6 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-  def new
-    render :layout => 'signup'
-  end
-
   def show
     @notes = user.notes.paginate(page: params[:page])
   end
