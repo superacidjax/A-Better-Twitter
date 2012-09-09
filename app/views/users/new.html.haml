@@ -1,29 +1,24 @@
 = provide(:title, 'Group Communications. Easy.')
 .content
-  %h1
-    Zebra Crossing
   %h2
-    Group communication. Easy.
-  %h3#getstarted
-    Get started in 10 seconds.
-  %h3#signup
-    Sign up now!
-  %h3#blank
-    %br
-  %h4#signup
-    (it's free)
+    where groups come together
+  #effects
+    %h3#getstarted
+      Get started in 10 seconds.
+    %h3#signup
+      = link_to 'Sign up now!', '#'
+    %h3#blank
+      %br
+    %h4#signup
+      (it's free)
   %h5#more
-    Learn more...
+    = link_to 'Learn more...', '#'
+  %h5#signup
+    = link_to 'sign up now!', '#'
 
 #hero
   .vertical.stripes
-    / .biglogo#logo
-    /   = image_tag('zebracrossing_big_logo.png')
-
     #form
-      / .biglogo#logo
-      /   = image_tag('zebracrossing_big_logo.png')
-      / #right
       = render 'users/signup'
 #learnmore
   %h2

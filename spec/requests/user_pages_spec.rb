@@ -52,7 +52,7 @@ describe "User Pages" do
   describe "Sign up page" do
 
     before { visit signup_path }
-      it { should have_selector('h1', text: 'Zebra Crossing') }
+      it { should have_selector('h2', text: 'where groups come together') }
       it { should have_selector('title',
           text: full_title('Group Communications. Easy.')) }
   end

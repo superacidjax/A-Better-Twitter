@@ -9,61 +9,39 @@ html
   font-size: 16px
 body
   font-size: 62.5%
-  font: normal 13px "myriad-pro", sans-serif
+  font: normal 1em "freight-sans-pro", sans-serif
   color: #3f3d32
   -webkit-font-smoothing: anti-aliased
   background: #fff
 
 header
-  // background-color:  #3f3d32
-  position: fixed
   width: 100%
   z-index: 9999
   padding: 15px 0 0 0
-  .container
-    padding: 0 10px
-    .logo
-      width: 55%
-      float: left
-      img
-        float: left
-        padding: 0 12px 12px 12px
-      h1
-        font-family: "ff-enzo-web",sans-serif
-        font-size: 3.0em
-        color: #CD2626
-        span
-          color: #3f3d32
-          margin-left: -.1em
-      h2
-        margin-left: 36px
-        padding-top: 2px
-        font-family: "ff-tisa-sans-web-pro"
-        font-style: italic
-        font-weight: bold
-        font-size: 1.5em
-      a
-        text-decoration: none
-        color: inherit
+  img
+    display: block
+    margin-right: auto
+    margin-left: auto
+    clear: right
 ul.navigation
   float: right
+  padding-right: 5%
   margin: auto
-  font-family: "ff-enzo-web",sans-serif
-  font-weight: 100
+  font-family: "freight-sans-pro"
+  font-weight: 400
   font-style: normal
-  padding-top: 12px
   li
     display: block
     float: left
     a
-      color: #EDEDED
+      color: #3f3d32
       border: .1em groove transparent
       -moz-border-radius: 1.4em
       -ms-border-radius: 1.4em
       -o-border-radius: 1.4em
       -webkit-border-radius: 1.4em
       border-radius: 1.4em
-      font-size: 2.3em
+      font-size: 1.5em
       padding: 6px 20px
       text-shadow: 1px 1px 1px #E5E5E5
       text-transform: lowercase
@@ -101,7 +79,7 @@ ul.navigation
   box-shadow: 1px 1px 8px gray
 
 .vertical
-  background-color: #838B8B
+  background-color: #3f3d32
   background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent))
   background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
   background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
@@ -111,45 +89,140 @@ ul.navigation
 
 
 .content
-  margin-top: 5%
+  display: block
   padding-bottom: 5%
   h1, h2, h3, h4
     text-align: center
   h1
     font-size: 8em
+  h1#zebra
+    font-family: "freight-sans-pro"
+    font-weight: 700
+    font-style: normal
   h2
     font-size: 3em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    padding-bottom: 2%
   h3
     font-size: 2em
     margin-top: 2%
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
   h3#signup
     display: none
-    color: #EDEDED
-    border: .1em groove transparent
-    -moz-border-radius: 1.4em
-    -ms-border-radius: 1.4em
-    -o-border-radius: 1.4em
-    -webkit-border-radius: 1.4em
-    border-radius: 1.4em
-    font-size: 2.3em
-    padding: 6px 20px
-    text-shadow: 1px 1px 1px #E5E5E5
-    text-transform: lowercase
-    -webkit-transition: all 0.4s ease
-    -moz-transition: all 0.4s ease
-    -o-transition: all 0.4s ease
-    transition: all 0.4s ease
-    vertical-align: middle
-    text-decoration: none
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
+
   h3#blank
     display: none
   h4
-    font-size: 1em
+    font-size: 1.2em
     padding-top: 1%
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
   h5
     width: 70%
     text-align: right
     text-transform: uppercase
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.5em
+  h5#more
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
+  h5#signup
+    display: none
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
 
 #form
   padding-top: 2%
@@ -189,8 +262,9 @@ ul.navigation
     -moz-border-radius: 1.4em
     -webkit-border-radius: 1.4em
     border-radius: 1.4em
-    font-family: "ff-enzo-web",sans-serif
-    font-weight: 600
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
     font-size: 1.3em
     color: #3f3d32
     margin: 0 0 20px 0
@@ -211,7 +285,9 @@ ul.navigation
     color: #EDEDED
     padding-bottom: 1%
     display: block
-    font-weight: bold
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
     font-size: 1.3em
   input[type="checkbox"]
     display: inline
@@ -223,8 +299,8 @@ ul.navigation
 input[type="submit"]
   background-color: #EDEDED
   text-align: center
-  font-family: "ff-enzo-web",sans-serif
-  font-weight: 100
+  font-family: "freight-sans-pro"
+  font-weight: 400
   font-style: normal
   width: 400px
   margin-left: auto
@@ -264,5 +340,11 @@ input[type="submit"]
   margin-right: auto
   h2
     font-size: 2em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
   p
     font-size: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal

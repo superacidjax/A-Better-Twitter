@@ -1,15 +1,9 @@
 %header
-  .container
-    .logo
-      %img
-        = link_to image_tag('zebras_small_logo.png'), root_path, id: "logo"
-    %ul.navigation
-      %li#about
-        = link_to 'sign in', signin_path
-/       %li#process
-/         = link_to 'process', '#'
-/       %li#contact
-/         = link_to 'contact', '#'
+  %ul.navigation
+    %li
+      = link_to 'sign in', signin_path
+  %img
+    = link_to image_tag('zebra_big_banner.png')
 
 
 
