@@ -1,9 +1,7 @@
 .user_info
   .gravatar
-    = gravatar_for current_user, size: 100
+    = gravatar_for current_user, size: 72
   .basic_info
     %h1
       = current_user.name
     %span= link_to "view my profile", current_user
-    %span
-      = pluralize(current_user.notes.count, "note")

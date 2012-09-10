@@ -1,19 +1,24 @@
 - if signed_in?
-  .row
-    %section
-      = render 'shared/user_info'
-    %section
-      = render 'shared/stats'
-    %hr
-    %section
-      = render 'shared/note_form'
-      %section
-        = render 'shared/user_group_ownership'
-      %section
-        = link_to "Create a group", new_group_path
-    .span8
-      %h3 People you follow
-      = render partial: 'shared/feed'
-      %h3
-        In your groups
-      = render partial: 'groups/feed'
+  .colmask.threecol
+    .colmid
+      .colleft
+        .col1.vertical.stripes
+          %h3
+            In your groups
+          = render partial: 'groups/feed'
+        .col2
+          %section
+            = render 'shared/user_info'
+          %section
+            = render 'shared/stats'
+          %section
+            = render 'shared/note_form'
+          %section
+            = render 'shared/user_group_ownership'
+          %section
+            #group.management
+              %h3
+                = link_to "Create a group", new_group_path
+        .col3.verticallight.stripeslight
+          %h3 People you follow
+          = render partial: 'shared/feed'
