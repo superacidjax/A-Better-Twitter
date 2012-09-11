@@ -32,6 +32,7 @@ set :deploy_to, "/home/deploy/rails_apps/#{application}"
 
 # Repo Settings
 set :repository,  "git@github.com:superacidjax/A-Better-Twitter.git"
+set :branch "master"
 set :scm, "git"
 set :checkout, 'export'
 set :copy_exclude, ".git/*"
