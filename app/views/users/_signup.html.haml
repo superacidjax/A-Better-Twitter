@@ -1,0 +1,22 @@
+.row#landing
+  = form_for(user) do |f|
+    = render 'shared/error_messages', object: f.object
+    = f.label :name, "username"
+    = f.text_field :name
+
+    = f.label :first_name, "first name"
+    = f.text_field :first_name
+
+    = f.label :last_name, "last name"
+    = f.text_field :last_name
+
+    = f.label :email, "email"
+    = f.email_field :email
+
+    = f.label :password, "password"
+    = f.password_field :password
+
+    = f.label :password_confirmation, "password confirmation"
+    = f.password_field :password_confirmation
+
+    = f.submit "Create my account", class: "btn btn=large btn-primary"

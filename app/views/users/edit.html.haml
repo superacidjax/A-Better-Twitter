@@ -4,27 +4,27 @@
   .span6.offset3
     = form_for(user) do |f|
       = render 'shared/error_messages', object: f.object
-      = f.label :name, "Username"
+      = f.label :name, "username"
       = f.text_field :name
 
-      = f.label :first_name
+      = f.label :first_name, "first name"
       = f.text_field :first_name
 
-      = f.label :last_name
+      = f.label :last_name, "last name"
       = f.text_field :last_name
 
-      = f.label :zip_code, "Zip/Postal Code"
+      = f.label :zip_code, "zip/postal code"
       = f.telephone_field :zip_code
 
-      = f.label :email
+      = f.label :email, "email"
       = f.email_field :email
 
-      = f.label :password
+      = f.label :password, 'password'
       = f.password_field :password
 
-      = f.label :password_confirmation, "Confirm Password"
+      = f.label :password_confirmation, "password confirmation"
       = f.password_field :password_confirmation
 
-      = f.submit "Save changes", class: "btn btn=large btn-primary"
+      = f.submit "save changes", class: "btn btn=large btn-primary"
     = gravatar_for user
     = link_to "change", "http://gravatar.com/emails", target: "_blank"

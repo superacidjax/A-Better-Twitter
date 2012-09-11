@@ -1,5 +1,9 @@
+.countdown
+  %h4
+    characters left:
+    %span#char-count 250
 = form_for(note) do |f|
-  .field
-    = f.text_area :content, placeholder: "Write a note.."
+  #noteform
+    = f.text_area :content, placeholder: "Write a note..", rows: 6, maxlength: 250
     = f.collection_select :group_id, current_user.group_memberships, :id, :name
   = f.submit "Post", class: "btn btn-large btn-primary"

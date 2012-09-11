@@ -1,28 +1,24 @@
 - if signed_in?
-  .row
-    %aside.span4
-      %section
-        = render 'shared/user_info'
-      %section
-        = render 'shared/stats'
-      %section
-        = render 'shared/note_form'
-      %section
-        = render 'shared/user_group_ownership'
-      %section
-        = link_to "Create a group", new_group_path
-    .span8
-      %h3 People you follow
-      = render partial: 'shared/feed'
-      %h3
-        In your groups
-      = render partial: 'groups/feed'
--else
-  %center.hero-unit
-    %h1 MamaBirds
-    %p
-      It's hard work being a mom! Get a little help from your friends with
-      MamaBirds. With MamaBirds you can share tips, communicate, buy and
-      sell things and more! MamaBirds is a free community that makes it easy,
-      safe and fun to connect with moms in your neighborhood.
-    = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+  .colmask.threecol
+    .colmid
+      .colleft
+        .col1.vertical.stripes
+          %h3
+            In your groups
+          = render partial: 'groups/feed'
+        .col2
+          %section
+            = render 'shared/user_info'
+          %section
+            = render 'shared/stats'
+          %section
+            = render 'shared/note_form'
+          %section
+            = render 'shared/user_group_ownership'
+          %section
+            #group.management
+              %h3
+                = link_to "Create a group", new_group_path
+        .col3.verticallight.stripeslight
+          %h3 People you follow
+          = render partial: 'shared/feed'

@@ -1,5 +1,7 @@
 BetterTwitter::Application.routes.draw do
 
+require File.expand_path("../../lib/logged_in_constraint", __FILE__)
+
   resources :users do
     member do
       get :following, :followers, :memberships
@@ -11,11 +13,13 @@ BetterTwitter::Application.routes.draw do
   resources :groups
   resources :memberships, only: [:create, :destroy]
 
-  root to: 'pages#home'
+  root to: 'users#new', constraints: LoggedInConstraint.new(false)
+  root to: 'pages#home', constraints: LoggedInConstraint.new(true)
 
   match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
+  match '/signin', to: 'sessions#new', as: 'signin'
   match '/signout', to: 'sessions#destroy'
+  match '/welcome', to: 'pages#landing'
 
   match '/help', to: 'pages#help'
   match '/contact', to: 'pages#contact'

@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
   belongs_to :group
 
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 200 }
+  validates :content, presence: true, length: { maximum: 250 }
   validates :group_id, presence: true
 
   default_scope order: 'notes.created_at DESC'

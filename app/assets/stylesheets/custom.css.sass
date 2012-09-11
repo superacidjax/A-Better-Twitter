@@ -1,186 +1,669 @@
-@import "bootstrap"
+@import "mixins"
 
-$textBlack: #3f3d32
-$lightGrey: #eaeaea
-
-@mixin box_sizing
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
-  box-sizing: border-box
-
-body
-  padding-top: 60px
-
-  section
-    overflow: auto
-
-  textarea
-    resize: vertical
-
-  .center
-    text-align: center
-    h1
-      margin-bottom: 10px
-
-  center.hero-unit
-    h1, p
-      color: $textBlack
-
-  h1, h2, h3, h4, h5, h6
-    line-height: 1
-
-  h1
-    font-size: 3em
-    letter-spacing: -2px
-    text-align: center
-    margin-bottom: 30px
-
-  h2
-    font-size 1.7em
-    letter-spacing: -1px
-    margin-bottom: 30px
-    text-align: center
-    font-weight: normal
-    color: $textBlack
-
-  p
-    font-size: 1.1em
-    line-height: 1.7em
-
-  #logo
-    float: left
-    margin-right: 10px
-    font-size: 1.7em
-    color: white
-    text-transform: uppercase
-    padding-top: 9px
-    font-weight: bold
-    line-height: 1
-    &:hover
-      color: red
-      text-decoration: none
-
-  footer
-    margin-top: 45px
-    padding-top: 5px
-    border-top: 1px solid #eaeaea
-    color: $textBlack
-    a
-      color: #555
-      &:hover
-        color: #222
-    small
-      float: left
-    ul
-      float: right
-      list-style: none
-      li
-        float: left
-        margin-left: 10px
-
-  .debug_dump
-    clear: both
-    float: left
-    width: 100%
-    margin-top: 45px
-    @include box_sizing
-
-/* sidebar */
-
-aside
-  section
-    padding: 10px 0
-    border-top: 8px solid #fff
-    &:first-child
-      border: 0
-      padding-top: 0
-    span
-      display: block
-      margin-bottom: 3px
-      line-height: 1
-    h1
-      font-size: 1.6em
-      text-align: left
-      letter-spacing: -1px
-      margin-bottom: 3px
-
-  .gravatar
-    float: left
-    margin-right: 10px
-
-/* forms */
-
-input, textarea, select, .uneditable-input
-  border: 1px solid #bbb
-  width: 100%
-  height: auto
-  margin-bottom: 15px
-  @include box_sizing
-
-/* error explaination */
-
-#error_explanation
-  padding-top: 18px
-  color: #f00
-  ul
-    list-style: none
-    margin: 0 0 18px 0
-
-.field_with_errors
-  @extend .control-group
-  @extend .error
-
-.users
-  list-style: none
+html, body
+  height: 100%
+  padding: 0
   margin: 0
-  li
-    overflow: auto
-    padding: 10px
-    border-top: 1px solid $lightGrey
-    &:last-child
-      border-bottom: 1px solid $lightGrey
 
-.notes
-  list-style: none
-  margin: 10px 0 0 0 0
+html
+  font-size: 16px
+body
+  font-size: 62.5%
+  font: normal 1em "freight-sans-pro", sans-serif
+  color: #3f3d32
+  -webkit-font-smoothing: anti-aliased
+  background: #F5F5F5
+
+.bigbanner
+  display: block
+  margin-right: auto
+  margin-left: auto
+  padding-left: 8%
+  clear: right
+
+header
+  width: 100%
+  z-index: 9999
+  padding: 0 0 0 0
+  img#littlebanner
+    display: inline-block
+    margin-left: 0
+ul.navigation
+  float: right
+  padding-right: 5%
+  padding-top: 16px
+  margin: auto
+  font-family: "freight-sans-pro"
+  font-weight: 400
+  font-style: normal
 
   li
-    padding: 10px 0
-    border-top: 1px solid #e8e8e8
+    display: block
+    float: left
+    a
+      color: #3f3d32
+      border: .1em groove transparent
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1.5em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+    a:hover
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+.biglogo
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  float: left
+
+.stripes
+  height: 100%
+  width: 100%
+  -webkit-background-size: 50px 50px
+  -moz-background-size: 50px 50px
+  background-size: 50px 50px
+  /* Controls the size of the stripes
+  -moz-box-shadow: 1px 1px 8px gray
+  -webkit-box-shadow: 1px 1px 8px gray
+  box-shadow: 1px 1px 8px gray
+
+.vertical
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  background-color: #3f3d32
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent))
+  background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -ms-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+
+.stripeslight
+  height: 100%
+  width: 100%
+  -webkit-background-size: 50px 50px
+  -moz-background-size: 50px 50px
+  background-size: 50px 50px
+  /* Controls the size of the stripes
+  -moz-box-shadow: 1px 1px 8px gray
+  -webkit-box-shadow: 1px 1px 8px gray
+  box-shadow: 1px 1px 8px gray
+
+.verticallight
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  background-color: #32343f
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent))
+  background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -ms-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent)
 
 .content
   display: block
-
-.timestamp
-  color: $lightGrey
-
-.gravatar
-  float: left
-  margin-right
-
-aside
-  textarea
-    height: 100px
-    margin-bottom: 5px
-
-.stats
-  overflow: auto
-  a
-    float: left
-    padding: 0 10px
-    border-left: 1px solid $lightGrey
-    color: gray
-    &:first-child
-      padding-left: 0
-      border: 0
-    &:hover
+  padding-bottom: 5%
+  h1, h2, h3, h4
+    text-align: center
+  h1
+    font-size: 8em
+  h1#zebra
+    font-family: "freight-sans-pro"
+    font-weight: 700
+    font-style: normal
+  h2
+    font-size: 3em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    padding-bottom: 2%
+  h3
+    font-size: 2em
+    margin-top: 2%
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+  h3#signup
+    display: none
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
       text-decoration: none
-      color: $blue
-  strong
-    display: block
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
 
-.user_avatars
-  overflow: auto
-  margin-top: 10px
-  .gravatar
-    margin: 1px 1px
+  h3#blank
+    display: none
+  h4
+    font-size: 1.2em
+    padding-top: 1%
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+  h5
+    width: 70%
+    text-align: right
+    text-transform: uppercase
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.5em
+  h5#more
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
+  h5#signup
+    display: none
+    a
+      color: #3f3d32
+      -moz-border-radius: 1.4em
+      -ms-border-radius: 1.4em
+      -o-border-radius: 1.4em
+      -webkit-border-radius: 1.4em
+      border-radius: 1.4em
+      font-size: 1em
+      padding: 6px 20px
+      text-shadow: 1px 1px 1px #E5E5E5
+      text-transform: lowercase
+      -webkit-transition: all 0.4s ease
+      -moz-transition: all 0.4s ease
+      -o-transition: all 0.4s ease
+      transition: all 0.4s ease
+      vertical-align: middle
+      text-decoration: none
+      border: .1em solid #e5e5e5
+      background-color: #ffffff
+      background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+      background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+      background-image: linear-gradient(top, #ffffff, #f7f7f7)
+      text-decoration: none
+    a:hover
+      border: .1em groove transparent
+      background-color: #ffffff
+      text-decoration: none
+
+#form
+  padding-top: 2%
+  color: #EDEDED
+  #cancel
+    font-size: 2em
+    a
+      text-decoration: none
+    a:visited
+      color: inherit
+  p
+    text-align: right
+    font-size: 1.3em
+    padding-top: 5%
+    a
+      color: inherit
+  width: 600px
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 2%
+  li
+    list-style-type: none
+  fieldset
+  input
+  input[type="text"]
+  input[type="password"]
+  input[type="email"]
+  textarea
+    width: 70%
+
+  input[type="date"], input[type="datetime"], input[type="datetime-local"],
+  input[type="email"], input[type="month"], input[type="number"], input[type="numeric"],
+  input[type="password"], input[type="phone"], input[type="search"],
+  input[type="tel"], input[type="text"], input[type="time"], input[type="url"],
+  input[type="week"], textarea,
+  select
+    padding-top: 50%
+    text-align: left
+    width: 100%
+    border: .1em solid #fff
+    padding: 6px 4px
+    outline: none
+    -moz-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+    color: #3f3d32
+    margin: 0 0 20px 0
+    max-width: 100%
+    // display: block;
+    background: #ffffff
+    &:focus
+      border: .1em solid #25cdcd
+      color: #3f3d32
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      box-shadow:  0 0 3px rgba(0,0,0,.2)
+  select
+    padding: 0
+  textarea
+    min-height: 60px
+  label, legend
+    color: #EDEDED
+    padding-bottom: 1%
+    display: block
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+  input[type="checkbox"]
+    display: inline
+  label span,
+  legend span
+    font-weight: normal
+    font-size: 15px
+    color: yellow
+input[type="submit"]
+  background-color: #EDEDED
+  text-align: center
+  font-family: "freight-sans-pro"
+  font-weight: 400
+  font-style: normal
+  width: 300px
+  margin-left: auto
+  margin-right: auto
+  color: #CD2626
+  border: 1px solid #e5e5e5
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  font-size: 1.4em
+  padding: 6px 20px
+  text-shadow: 1px 1px 1px #E5E5E5
+  text-transform: uppercase
+  -webkit-transition: all 0.4s ease
+  -moz-transition: all 0.4s ease
+  -o-transition: all 0.4s ease
+  transition: all 0.4s ease
+  vertical-align: middle
+  text-decoration: none
+  &:hover
+    border: 1px groove transparent
+    background-color: #ffffff
+    background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+    background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: linear-gradient(top, #ffffff, #f7f7f7)
+    text-decoration: none
+#learnmore
+  display: none
+  padding: 5%
+  width: 800px
+  margin-left: auto
+  margin-right: auto
+  h2
+    font-size: 2em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+  p
+    font-size: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+.colmask
+  position: relative
+  clear: both
+  float: left
+  width: 100%
+  overflow: hidden
+  h3
+    color: #fff
+    margin-left: 5%
+    font-size: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+
+.colright, .colmid, .colleft
+  float: left
+  width: 100%
+  position: relative
+
+.col1, .col2, .col3
+  float: left
+  position: relative
+  padding: 0
+  overflow: hidden
+
+/* 3 Column settings
+
+.threecol
+  padding-top: 2%
+  background: #F5F5F5
+  /* right column background colour
+  .colmid
+    right: 33%
+    /* width of the right column
+  .colleft
+    right: 35%
+    /* width of the middle column
+    background: #F5F5F5
+    /* left column background colour
+  .col1
+    width: 33%
+    /* width of center column content (column width minus padding on either side)
+    left: 100%
+    /* 100% plus left padding of center column
+  .col2
+    width: 31%
+    /* Width of left column content (column width minus padding on either side)
+    left: 35%
+    /* width of (right column) plus (center column left and right padding) plus (left column left padding)
+    .user_info
+      margin-left: 18px
+      padding-left: 5%
+      .gravatar
+        padding-top: 1%
+        -moz-border-radius: 1.4em
+        -ms-border-radius: 1.4em
+        -o-border-radius: 1.4em
+        -webkit-border-radius: 1.4em
+        border-radius: 1.4em
+        float: left
+      .basic_info
+        display: none
+        margin-left: 8px
+        margin-top: -10px
+        position: absolute
+        display: inline
+        float: right
+        h1
+          font-size: 2em
+    .stats
+      margin: 56px 0  0 9px
+      display: inline-block
+  .col3
+    width: 31%
+    /* Width of right column content (column width minus padding on either side)
+    left: 70%
+    /*                   Please make note of the brackets here:
+     // *        (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding)
+
+
+ol
+  li
+    width: 90%
+    background: #F5F5F5
+    margin-top: 3%
+    margin-left: 12px
+    -moz-border-radius: 1.4em
+    -ms-border-radius: 1.4em
+    -o-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-size: 1em
+    padding: 6px 6px 6px 6px
+    text-shadow: 1px 1px 1px #E5E5E5
+    vertical-align: middle
+    text-decoration: none
+    border: .1em solid #e5e5e5
+    background-color: #ffffff
+    background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+    background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: linear-gradient(top, #ffffff, #f7f7f7)
+    text-decoration: none
+    -moz-box-shadow: 1px 1px 1px #3f3d32
+    -webkit-box-shadow: 1px 1px 1px #3f3d32
+    box-shadow: 1px 1px 1px #3f3d32
+    a
+      color: inherit
+
+  .rowleft
+    width: 300px
+    padding-top: 3%
+    margin-left: 18px
+    float: left
+    a
+      color: inherit
+  .row#landing
+    float: none
+    a
+      color: inherit
+
+  .rowmiddle
+    width: 330px
+    padding-top: 3%
+    margin-left: auto
+    margin-right: auto
+    white-space: nowrap
+    float: right
+    position: relative
+
+.countdown
+  padding-top: 18px
+  h4
+    padding-right: 29px
+    text-align: right
+    font-size: 1em
+    color: #3f3d32
+    span
+      color: #CD2626
+
+#noteform
+  padding-top: 0
+  color: #EDEDED
+  #cancel
+    font-size: 2em
+    a
+      text-decoration: none
+    a:visited
+      color: inherit
+  p
+    text-align: right
+    font-size: 1.3em
+    padding-top: 5%
+    a
+      color: inherit
+  width: 600px
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 2%
+  li
+    list-style-type: none
+  fieldset
+  input
+  input[type="text"]
+  input[type="password"]
+  input[type="email"]
+  textarea
+    width: 70%
+
+  input[type="date"], input[type="datetime"], input[type="datetime-local"],
+  input[type="email"], input[type="month"], input[type="number"], input[type="numeric"],
+  input[type="password"], input[type="phone"], input[type="search"],
+  input[type="tel"], input[type="text"], input[type="time"], input[type="url"],
+  input[type="week"], textarea,
+  select
+    -moz-box-shadow: 5px 5px 12px #3f3d32
+    -webkit-box-shadow: 5px 5px 12px #3f3d32
+    box-shadow: 5px 5px 12px #3f3d32
+    height: 10%
+    text-align: left
+    width: 55%
+    border: .1em solid #fff
+    padding: 6px 4px
+    outline: none
+    -moz-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+    color: #3f3d32
+    margin: 2% 2% 0 5%
+    // display: block;
+    background: #ffffff
+    &:focus
+      border: .1em solid #25cdcd
+      color: #3f3d32
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      box-shadow:  0 0 3px rgba(0,0,0,.2)
+  select
+    padding: 0
+  textarea
+    min-height: 60px
+  label, legend
+    color: #EDEDED
+    padding-bottom: 1%
+    display: block
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+  input[type="checkbox"]
+    display: inline
+  label span,
+  legend span
+    font-weight: normal
+    font-size: 15px
+    color: yellow
+input[type="submit"]
+  background-color: #EDEDED
+  text-align: center
+  font-family: "freight-sans-pro"
+  font-weight: 400
+  font-style: normal
+  width: 300px
+  margin-left: 15%
+  margin-right: auto
+  color: #CD2626
+  border: 1px solid #e5e5e5
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  font-size: 1.4em
+  padding: 6px 20px
+  text-shadow: 1px 1px 1px #E5E5E5
+  text-transform: uppercase
+  -webkit-transition: all 0.4s ease
+  -moz-transition: all 0.4s ease
+  -o-transition: all 0.4s ease
+  transition: all 0.4s ease
+  vertical-align: middle
+  text-decoration: none
+  &:hover
+    border: 1px groove transparent
+    background-color: #ffffff
+    background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+    background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: linear-gradient(top, #ffffff, #f7f7f7)
+    text-decoration: none
+
+#group.management, #group.memberships
+  padding: 5%
+  h3
+    color: inherit
+    font-size: 1.2em
+    margin-left: 5%
+    font-weight: 700
+    a
+      color: inherit
+  ul
+    li
+      margin-left: 5%
+      a
+        font-size: 1.4em
+        color: inherit
+
+
+

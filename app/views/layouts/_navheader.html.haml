@@ -1,10 +1,21 @@
 %header
-  %img#littlebanner
-    = link_to image_tag('zebra_small_banner.png'), root_path
-  %ul.navigation
-    %li#process
-      = link_to 'help', '#'
-
+  - unless signed_in?
+    %ul.navigation
+      %li
+        = link_to 'sign in', signin_path
+  - else
+    %img#littlebanner
+      = link_to image_tag('zebra_small_banner.png')
+    %ul.navigation
+      %li
+        = link_to 'settings', edit_user_path(current_user)
+      %li#process
+        = link_to 'help', '#'
+      %li#about
+        = link_to 'sign out', signout_path
+-unless signed_in?
+  .bigbanner
+    = image_tag('zebra_big_banner.png')
 
 
 
