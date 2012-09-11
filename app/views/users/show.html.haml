@@ -1,34 +1,46 @@
 = provide(:title, user.name)
-.row
-  %aside.span4
-    %section
-      %h1
-        = gravatar_for user, size: 52
-        = user.name
-    %section
-      = render 'shared/stats'
-    %section
-      - if user.groups.any?
+.colmask.threecol
+  .colmid
+    .colleft
+      .col1.vertical.stripes
         %h3
-          I manage #{pluralize(user.groups.count, "group")}.
-        %ul
-          - user.groups.each do |group|
-            %li
-              = link_to group.name, group_path(group)
-    %section
-      - if user.group_memberships.any?
-        #group.memberships
-          %h3
-            I am a member of #{pluralize(user.memberships.count, "group")}.
-          %ul
-            - user.group_memberships.each do |membership|
-              %li
-                = link_to membership.name, group_path(membership)
-  .span8
-    = render 'follow_form' if signed_in?
-    - if user.notes.any?
-      %h3 Notes (#{user.notes.count})
-      %br
-    %ol.notes
-      = render @notes
-    = will_paginate @notes
+          - if user.notes.any?
+            %h3 Notes (#{user.notes.count})
+            %br
+          %ol.notes
+            = render @notes
+          = will_paginate @notes
+          -unless user.notes.any?
+            #{user.name} hasn't posted any notes yet!
+      .col2
+        %section
+          .user_info
+            .gravatar
+              = gravatar_for user, size: 72
+            .basic_info
+              %h1
+                = user.name
+        %section
+          = render 'shared/stats'
+        #followbutton
+          = render 'follow_form' if signed_in?
+        %section
+          - if user.groups.any?
+            #group.management
+              %h3
+                #{user.name} manages #{pluralize(current_user.groups.count, "group")}.
+              %ul
+                - current_user.groups.each do |group|
+                  %li
+                    = link_to group.name, group_path(group)
+          %section
+            - if user.group_memberships.any?
+              #group.memberships
+                %h3
+                  #{user.name} is a member of #{pluralize(current_user.memberships.count, "group")}.
+                %ul
+                  - current_user.group_memberships.each do |membership|
+                    %li
+                      = link_to membership.name, group_path(membership)
+        %section
+      .col3.verticallight.stripeslight
