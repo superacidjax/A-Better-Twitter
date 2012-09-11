@@ -1,7 +1,10 @@
-%li{:id => feed_item.id}
-  = link_to gravatar_for(feed_item.user), feed_item.user
-  %span.user
-    = link_to feed_item.user.name, feed_item.user
+%li#feed_item.id
+  #noteowner
+    %img
+      = link_to gravatar_for(feed_item.user), feed_item.user
+    %h2#none
+      %span.user
+        = link_to feed_item.user.name, feed_item.user
   %span.content
     = feed_item.content
   %span.timestamp
