@@ -23,7 +23,7 @@ describe "Pages" do
         end
         it "should render the user's feed" do
           user.feed.each do |item|
-            page.should have_selector("li##{item.id}", text: item.content)
+            page.should have_selector("li#feed_item", text: item.content)
           end
         end
 
