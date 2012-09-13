@@ -1,28 +1,44 @@
-- if signed_in?
-  .row
-    - if current_user == group.user
-      I'm the boss of this group
-      = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
-    - elsif current_user.member?(group)
-      I'm a member
-    -else
-      I'm ain't jack shit up in here.
--else
-  Sign up for a free ZebraCrossing membership to join this group!
-%aside.span4
-  %section
-    %h1
-      = group.name
-    %br
-      = group.user.name
-    %h2
-      = group.category
-    %p
-      = group.description
-- if signed_in?
-  %section
-    = render 'groups/join_form'
-  %section
-    = render 'groups/feed'
-- else
-  = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+= provide(:title, group.name)
+/ - if signed_in?
+/   .row
+/     - if current_user == group.user
+/       I'm the boss of this group
+/       = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
+/     - elsif current_user.member?(group)
+/       I'm a member
+/     -else
+/       I'm ain't jack shit up in here.
+/ -else
+/   Sign up for a free ZebraCrossing membership to join this group!
+.colmask.threecol
+  .colmid
+    .colleft
+      .col1.vertical.stripes
+        %h3 From this group..
+        = render 'groups/feed'
+      .col2
+        .group_info
+          %h1
+            = group.name
+          %h3
+            This group was created by #{group.user.name}
+          %h2
+            Category:
+            %strong
+              = group.category
+          %h2
+            %strong
+              About this group:
+          %p
+            = group.description
+      - if signed_in?
+        %section
+          = render 'groups/join_form'
+      - else
+        = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
+      .col3.verticallight.stripeslight
+        %h3 Group members
+        %ul
+          - group.memberships.each do |member|
+            %li
+              / = link_to member, '#'
