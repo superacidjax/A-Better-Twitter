@@ -3,16 +3,13 @@
     Create your new group!
 #newgroupform
   = form_for(group) do |f|
-    = f.label :name, "Group Name"
     = f.text_field :name, placeholder: "enter a name for your group"
-    = f.label :description, "Description"
     = f.text_area :description, rows: 6, maxlength: 250, placeholder: "enter a short description for your group"
     #groupform
       .groupcountdown
         %h4
           characters left:
           %span#char-count 250
-    = f.label :category
     = f.collection_select :category, Group::CATEGORIES, :to_s, :to_s,
       include_blank: true
     = f.submit "Create my group!", class: "btn btn-large btn-primary"

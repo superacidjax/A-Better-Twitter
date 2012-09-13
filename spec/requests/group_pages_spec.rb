@@ -24,9 +24,9 @@ describe "Group pages" do
     describe "with valid information" do
 
       before do
-        fill_in 'Group Name',   with: "I Love Cats"
-        fill_in 'Description',  with: "This is a group all about cats."
-        select  'politics',     from: "Category"
+        fill_in 'group_name',   with: "I Love Cats"
+        fill_in 'group_description',  with: "This is a group all about cats."
+        select  'politics',     from: "group_category"
       end
 
       it "should create a group" do
