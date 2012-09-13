@@ -80,7 +80,7 @@ ul.navigation
   -webkit-background-size: 50px 50px
   -moz-background-size: 50px 50px
   background-size: 50px 50px
-  /* Controls the size of the stripes
+  //Controls the size of the stripes
   -moz-box-shadow: 1px 1px 8px gray
   -webkit-box-shadow: 1px 1px 8px gray
   box-shadow: 1px 1px 8px gray
@@ -105,7 +105,7 @@ ul.navigation
   -webkit-background-size: 50px 50px
   -moz-background-size: 50px 50px
   background-size: 50px 50px
-  /* Controls the size of the stripes
+  // Controls the size of the stripes
   -moz-box-shadow: 1px 1px 8px gray
   -webkit-box-shadow: 1px 1px 8px gray
   box-shadow: 1px 1px 8px gray
@@ -415,30 +415,30 @@ input[type="submit"]
   padding: 0
   overflow: hidden
 
-/* 3 Column settings
+// 3 Column settings
 
 .threecol
   padding-top: 2%
   background: #F5F5F5
-  /* right column background colour
+  // right column background colour
   .colmid
     right: 33%
-    /* width of the right column
+    // width of the right column
   .colleft
     right: 35%
-    /* width of the middle column
+    // width of the middle column
     background: #F5F5F5
-    /* left column background colour
+    // left column background colour
   .col1
     width: 33%
-    /* width of center column content (column width minus padding on either side)
+    // width of center column content (column width minus padding on either side)
     left: 100%
-    /* 100% plus left padding of center column
+    // 100% plus left padding of center column
   .col2
     width: 31%
-    /* Width of left column content (column width minus padding on either side)
+    // Width of left column content (column width minus padding on either side)
     left: 35%
-    /* width of (right column) plus (center column left and right padding) plus (left column left padding)
+    // width of (right column) plus (center column left and right padding) plus (left column left padding)
     .user_info
       margin-left: 18px
       padding-left: 5%
@@ -464,9 +464,9 @@ input[type="submit"]
       display: inline-block
   .col3
     width: 31%
-    /* Width of right column content (column width minus padding on either side)
+    // Width of right column content (column width minus padding on either side)
     left: 70%
-    /*                   Please make note of the brackets here:
+    //                   Please make note of the brackets here:
      // *        (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding)
 
 #followbutton
@@ -567,6 +567,16 @@ ol
     white-space: nowrap
     float: right
     position: relative
+
+.groupcountdown
+  padding-top: 2%
+  h4
+    padding-right: 15%
+    text-align: right
+    font-size: 1em
+    color: #3f3d32
+    span
+      color: #CD2626
 
 .countdown
   padding-top: 18px
@@ -669,6 +679,134 @@ input[type="submit"]
   margin-right: auto
   color: #CD2626
   border: 1px solid #e5e5e5
+  -moz-border-radius: 1.4em
+  -ms-border-radius: 1.4em
+  -o-border-radius: 1.4em
+  -webkit-border-radius: 1.4em
+  border-radius: 1.4em
+  font-size: 1.4em
+  padding: 6px 20px
+  text-shadow: 1px 1px 1px #E5E5E5
+  text-transform: uppercase
+  -webkit-transition: all 0.4s ease
+  -moz-transition: all 0.4s ease
+  -o-transition: all 0.4s ease
+  transition: all 0.4s ease
+  vertical-align: middle
+  text-decoration: none
+  &:hover
+    border: 1px groove transparent
+    background-color: #ffffff
+    background-image: -moz-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -ms-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -o-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f7f7f7))
+    background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7)
+    background-image: linear-gradient(top, #ffffff, #f7f7f7)
+    text-decoration: none
+
+#newgroup
+  padding-top: 5%
+  h1
+    margin-left: 15%
+    text-align: left
+    font-size: 2em
+.right
+  text-align: right
+  margin-right: 15%
+#groupform
+
+#newgroupform
+  #noteform
+    padding-top: 0
+    color: #EDEDED
+  #cancel
+    font-size: 2em
+    a
+      text-decoration: none
+    a:visited
+      color: inherit
+  p
+    text-align: right
+    font-size: 1.3em
+    padding-top: 5%
+    a
+      color: inherit
+  width: 600px
+  margin-left: auto
+  margin-right: auto
+  li
+    list-style-type: none
+  fieldset
+  input
+  input[type="text"]
+  input[type="password"]
+  input[type="email"]
+  textarea
+    width: 70%
+
+  input[type="date"], input[type="datetime"], input[type="datetime-local"],
+  input[type="email"], input[type="month"], input[type="number"], input[type="numeric"],
+  input[type="password"], input[type="phone"], input[type="search"],
+  input[type="tel"], input[type="text"], input[type="time"], input[type="url"],
+  input[type="week"], textarea,
+  select
+    -moz-box-shadow: 5px 5px 12px #3f3d32
+    -webkit-box-shadow: 5px 5px 12px #3f3d32
+    box-shadow: 5px 5px 12px #3f3d32
+    text-align: left
+    width: 75%
+    border: .1em solid #fff
+    padding: 6px 4px
+    outline: none
+    -moz-border-radius: 1.4em
+    -webkit-border-radius: 1.4em
+    border-radius: 1.4em
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+    color: #3f3d32
+    margin: 2% 2% 0 5%
+    // display: block;
+    background: #ffffff
+    &:focus
+      border: .1em solid #25cdcd
+      color: #3f3d32
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2)
+      box-shadow:  0 0 3px rgba(0,0,0,.2)
+  select
+    //padding-top: 5%
+    margin-bottom: 5%
+  textarea
+    min-height: 60px
+  label, legend
+    color: #EDEDED
+    padding-bottom: 1%
+    display: block
+    font-family: "freight-sans-pro"
+    font-weight: 400
+    font-style: normal
+    font-size: 1.3em
+  input[type="checkbox"]
+    display: inline
+  label span,
+  legend span
+    font-weight: normal
+    font-size: 15px
+    color: yellow
+input[type="submit"]
+  padding-top: 10%
+  background-color: #EDEDED
+  text-align: center
+  font-family: "freight-sans-pro"
+  font-weight: 400
+  font-style: normal
+  width: 300px
+  margin-right: auto
+  color: #CD2626
+  border: 1px solid #3f3d22
   -moz-border-radius: 1.4em
   -ms-border-radius: 1.4em
   -o-border-radius: 1.4em
