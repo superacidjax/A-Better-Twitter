@@ -11,9 +11,9 @@ gem 'rails', '3.2.8.rc2'
 gem 'rvm-capistrano'
 gem 'thin'
 
-group :production do
-	gem 'newrelic_rpm'
-end
+# group :production do
+# 	gem 'newrelic_rpm'
+# end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,7 +22,7 @@ group :assets do
 end
 
 group :development, :test do
-	gem 'heroku'
+	# gem 'heroku'
 	gem 'pry-nav'
 	gem 'pry-rails'
 	gem 'rspec-rails'
