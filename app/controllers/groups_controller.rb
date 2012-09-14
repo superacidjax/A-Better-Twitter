@@ -3,7 +3,10 @@ class GroupsController < ApplicationController
   before_filter :the_right_user, only: :destroy
 
   expose(:group)
-  expose(:groups)
+
+  def index
+    @groups = Group.paginate(page: params[:page])
+  end
 
   def show
     @group_feed_items = group.notes.paginate(page: params[:page])
