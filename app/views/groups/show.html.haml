@@ -34,6 +34,10 @@
       - if signed_in?
         %section
           = render 'groups/join_form'
+        %section
+        - if current_user == group.user
+          = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
+        - else
       - else
         = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
       .col3.verticallight.stripeslight

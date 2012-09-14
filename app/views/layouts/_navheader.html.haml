@@ -8,9 +8,13 @@
       = link_to image_tag('zebra_small_banner.png'), root_path
     %ul.navigation
       %li
+        = link_to 'groups', groups_path
+      %li
+        = link_to 'users', users_path
+      %li
         = link_to 'settings', edit_user_path(current_user)
-      %li#process
-        = link_to 'help', '#'
+      / %li#process
+      /   = link_to 'help', '#'
       %li#about
         = link_to 'sign out', signout_path
 -unless signed_in?
