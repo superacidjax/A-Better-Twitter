@@ -8,6 +8,9 @@
       = f.label :password, 'password'
       = f.password_field :password
 
+      = f.label :remember_me, 'remember me'
+      = check_box_tag :remember_me, 1, params[:remember_me]
+
       = f.submit "Sign in", class: "btn btn-large btn-primary"
 
     %p
