@@ -1,15 +1,15 @@
 = provide(:title, group.name)
-/ - if signed_in?
-/   .row
-/     - if current_user == group.user
-/       I'm the boss of this group
-/       = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
-/     - elsif current_user.member?(group)
-/       I'm a member
-/     -else
-/       I'm ain't jack shit up in here.
-/ -else
-/   Sign up for a free ZebraCrossing membership to join this group!
+- if signed_in?
+  .row
+    - if current_user == group.user
+      I'm the boss of this group
+      = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
+    - elsif current_user.member?(group)
+      I'm a member
+    -else
+      I'm ain't jack shit up in here.
+-else
+  Sign up for a free ZebraCrossing membership to join this group!
 .colmask.threecol
   .colmid
     .colleft
