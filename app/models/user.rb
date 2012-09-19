@@ -31,18 +31,67 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  def following?(other_user)
-    relationships.find_by_followed_id(other_user.id)
+  #following/followers
+
+  def follow!(user)
+    $redis.multi do
+      $redis.sadd(self.redis_key(:following), user.id)
+      $redis.sadd(user.redis_key(:followers), self.id)
+    end
   end
 
-  def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
+  # unfollow a user
+  def unfollow!(user)
+    $redis.multi do
+      $redis.srem(self.redis_key(:following), user.id)
+      $redis.srem(user.redis_key(:followers), self.id)
+    end
   end
 
-  def unfollow!(other_user)
-    relationships.find_by_followed_id(other_user).destroy
-    #relationships.find_by_follower_id(other_user).destroy
+  # users that self follows
+  def followers
+    user_ids = $redis.smembers(self.redis_key(:followers))
+    User.where(:id => user_ids)
   end
+
+  # users that follow self
+  def following
+    user_ids = $redis.smembers(self.redis_key(:following))
+    User.where(:id => user_ids)
+  end
+
+  # users who follow and are being followed by self
+  def friends
+    user_ids = $redis.sinter(self.redis_key(:following), self.redis_key(:followers))
+    User.where(:id => user_ids)
+  end
+
+  # does the user follow self
+  def followed_by?(user)
+    $redis.sismember(self.redis_key(:followers), user.id)
+  end
+
+  # does self follow user
+  def following?(user)
+    $redis.sismember(self.redis_key(:following), user.id)
+  end
+
+  # number of followers
+  def followers_count
+    $redis.scard(self.redis_key(:followers))
+  end
+
+  # number of users being followed
+  def following_count
+    $redis.scard(self.redis_key(:following))
+  end
+
+  # helper method to generate redis keys
+  def redis_key(str)
+    "user:#{self.id}:#{str}"
+  end
+
+  #groups
 
   def member?(group)
     memberships.find_by_group_membership_id(group.id)
@@ -56,7 +105,7 @@ class User < ActiveRecord::Base
     memberships.find_by_group_membership_id(group.id).destroy
   end
 
-
+  #feeds
 
   def feed
     Note.from_users_followed_by(self)

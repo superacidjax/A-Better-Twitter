@@ -8,6 +8,7 @@ gem 'hashrocket-rails'
 gem 'jquery-rails', '2.0.2'
 gem 'pg'
 gem 'rails', '3.2.8.rc2'
+gem 'redis'
 gem 'rvm-capistrano'
 gem 'thin'
 
