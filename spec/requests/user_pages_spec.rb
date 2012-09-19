@@ -211,7 +211,7 @@ describe "User Pages" do
   describe "signup" do
 
     before { visit signup_path }
-
+    let!(:group) { Fabricate(:group, id: 1) }
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do

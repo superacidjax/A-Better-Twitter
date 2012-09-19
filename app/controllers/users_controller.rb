@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   def create
     if user.save
       sign_in user
-      flash[:success] = "Welcome to MamaBirds!"
+      flash[:success] = "Welcome to Zebra Crossing!"
+      g = Group.find(1)
+      user.join!(g)
       redirect_to root_path
     else
       render :new
