@@ -9,6 +9,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'pg'
 gem 'rails', '3.2.8.rc2'
 gem 'rvm-capistrano'
+gem 'sendgrid'
 gem 'thin'
 
 # group :production do
