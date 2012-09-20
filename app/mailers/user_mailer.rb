@@ -1,8 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  # expose(:user)
-
-  default from: "from@example.com"
+  default from: "do-not-reploy@zebras.me"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
