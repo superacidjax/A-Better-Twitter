@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships
 
   before_save { |user| user.email = user.email.downcase }
-  before_save :create_remember_token
+
+  before_save { create_remember_token(:remember_token) }
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
@@ -66,10 +67,17 @@ class User < ActiveRecord::Base
     Note.from_groups_followed_by(self)
   end
 
+  def send_password_reset
+    create_remember_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(validate: false)
+    UserMailer.password_reset(self).deliver
+  end
+
   private
 
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
+    def create_remember_token(column)
+      self[column] = SecureRandom.urlsafe_base64
     end
 
 end
