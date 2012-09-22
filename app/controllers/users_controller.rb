@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       g = Group.find(1)
       user.join!(g)
       redirect_to root_path
+      UserMailer.registration_confirmation(user).deliver
     else
       render :new
     end
