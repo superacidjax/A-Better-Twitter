@@ -2,6 +2,7 @@
 - if signed_in?
   .row
     - if current_user == group.user
+      = link_to "Show Group Members", '#'
       I'm the boss of this group
       = button_to "Delete my group", group_path, method: "delete", confirm: "Are you sure?", class: "btn btn-large btn-primary"
     - elsif current_user.member?(group)
@@ -45,4 +46,4 @@
         %ul
           - group.memberships.each do |member|
             %li
-              / = link_to member, '#'
+              = link_to User.find_by_id(member.group_member_id).name, user_path(member)
