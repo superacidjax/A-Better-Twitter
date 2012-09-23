@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
-gem 'faker'
 gem 'hashrocket-rails'
 gem 'jquery-rails', '2.0.2'
 gem 'pg'
@@ -23,7 +22,7 @@ group :assets do
 end
 
 group :development, :test do
-	# gem 'heroku'
+	gem 'faker'
 	gem 'pry-nav'
 	gem 'pry-rails'
 	gem 'rspec-rails'
