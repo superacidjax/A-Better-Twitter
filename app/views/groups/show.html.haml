@@ -41,9 +41,15 @@
         - else
       - else
         = link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary"
-      .col3.verticallight.stripeslight
+      .col3
         %h3 Group members
         %ul
           - group.memberships.each do |member|
             %li
               = link_to User.find_by_id(member.group_member_id).name, user_path(member)
+              - if member.role == 'user'
+                Make Moderator
+                = button_to "Make Mod", membership_path(member), action: "make_mod", method: "put", remote: true
+              - elsif member.role == 'moderator'
+                = button_to "Kill Mod", membership_path(member), action: "kill_mod", method: "put", remote: true
+              - else

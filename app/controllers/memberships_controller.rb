@@ -16,4 +16,11 @@ class MembershipsController < ApplicationController
     current_user.leave!(group)
     respond_with group
   end
+
+  def update
+    group = Membership.find(params[:id]).group_membership
+    user = Membership.find(params[:id])
+    user.make_mod
+    respond_with group
+  end
 end
