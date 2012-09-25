@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
 
   def join!(group)
     memberships.create!(group_membership_id: group.id)
+    if group.user_id == self.id
+      owner = group.memberships.find_by_group_member_id(self.id)
+      owner.role = "owner"
+      owner.save!
+    else
+    end
   end
 
   def leave!(group)
