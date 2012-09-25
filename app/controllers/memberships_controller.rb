@@ -20,7 +20,15 @@ class MembershipsController < ApplicationController
   def update
     group = Membership.find(params[:id]).group_membership
     user = Membership.find(params[:id])
-    user.make_mod
+    if user.role == 'user'
+      user.make_mod
+      flash[:success] = "is now a moderator!"
+    elsif user.role == 'moderator'
+      user.kill_mod
+      flash[:success] = "#{user.name} is now NOT a moderator!"
+    else
+      redirect_to root_path
+    end
     respond_with group
   end
 end
